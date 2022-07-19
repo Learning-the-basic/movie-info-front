@@ -13,8 +13,8 @@ class Search extends React.Component {
 
 
   getSearchMovie = async () => {
-    const ID_KEY = 'Input_your_ID_KEY'; // 네이버 개발 API 발급받고 Key 입력!!
-    const SECRET_KEY = 'Input_your_Secret_key';
+    const ID_KEY = 'qiMNfCrKAD2YwpKZAnmG'; // 네이버 개발 API 발급받고 Key 입력!!
+    const SECRET_KEY = 'X_9ZY5oH3v';
     const search = this.state.value;
     try {
       if (search === "") {
@@ -45,12 +45,12 @@ class Search extends React.Component {
   };
 
 
-  handleChange = (e : any) => {
+  handleChange = (e) => {
     this.setState({value: e.target.value});
   };
 
 
-  handleSubmit = (e : any) => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.getSearchMovie();
   };
