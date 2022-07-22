@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./routes/Home";
+import Main from "./routes/Main";
 import Search from "./routes/Search";
 import Detail from './routes/Detail';
 import RankKofic from './routes/RanckKofic';
@@ -19,7 +19,7 @@ function App () {
           <RankKofic />
         </Route>
         <Route path="/">
-          <Home />
+          <Main />
         </Route>
         
       </Switch>
