@@ -4,10 +4,14 @@ import Main from "./routes/Main";
 import Search from "./routes/Search";
 import Detail from './routes/Detail';
 import RankKofic from './routes/RanckKofic';
+import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
+
 
 function App () {
   return (
     <Router>
+      <Nav />
       <Switch>
         <Route path="/search">
           <Search />
@@ -23,6 +27,7 @@ function App () {
         </Route>
         
       </Switch>
+      <Footer />
       {/* <Switch>
         <Route path="/" exact={true} component={Home}></Route>
         <Route path="/search" exact={true} component={Search}></Route>
