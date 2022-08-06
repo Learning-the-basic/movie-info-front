@@ -16,7 +16,7 @@ function App () {
         <Route path="/search">
           <Search />
         </Route>
-        <Route path="/detail">
+        <Route path="/movie/:id">
           <Detail />
         </Route>
         <Route path="/rank">

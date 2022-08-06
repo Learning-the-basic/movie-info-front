@@ -16,7 +16,7 @@ function Main(){
   return (
     <div className='container'>
       {isSearch? <Search/> : <h2>error</h2>}
-      {isRank? <RankKofic/> : <h2>error</h2>}
+      {/* {isRank? <RankKofic/> : <h2>error</h2>} */}
     </div>
   )
 }

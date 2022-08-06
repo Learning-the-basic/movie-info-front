@@ -1,13 +1,21 @@
 import React from "react";
-import {Link} from 'react-router-dom';
 import PropTypes from "prop-types";
 import "./Movie.css";
-import Detail from "../routes/Detail";
+import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 function SearchMovie({id, year, title, poster, rating, director, actor}) {
+  const tName= JSON.stringify({title}).substring(13).replace(/<[^>]*>?/g, '').replace(/\"/g, '').replace("}","")
+  const [isName, setisName] = useState(true);
+  const onClickName = (event) => {
+    setisName(true)
+    console.log(tName)
+  };
+  
   return (
     <div className="movie">
-      <a href={id} target="_blank">
+      {isName? 
+        <Link to={`/movie/${tName}`} onClick={onClickName}>
         <img src={poster} alt={title} titlt={title}></img>
       <div className="movie__data">
         <h3 className="movie__title">{
@@ -26,7 +34,12 @@ function SearchMovie({id, year, title, poster, rating, director, actor}) {
         <span>배우</span> {actor}
       </p>
       </div>
-    </a>
+      </Link>
+      : <h2>error</h2>}
+
+      
+      
+
   </div>
   )
 };
