@@ -1,36 +1,43 @@
-import { useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function Detail() {
-  const tname = useParams();
-//   console.log(tname)
+  const tname = "useParams()";
   const KEY2 = "80HF21BI401E15RFQ193"    //KMDB
-//   const DATE = moment().subtract(1, 'day').format('YYYYMMDD');
+  const [loading,setLoading] = useState(true);
+  const [movies,setMovies] = useState([]);
+
   const getMovie = async () => {
     const json = await (
       await fetch(
-        `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${tname.id}&ServiceKey=${KEY2}`)
-    ).json();
-    return {
-        // "title": movie.movieNm,
-        // "rnum": movie.rnum,
-        // "rank": movie.rank,
-        // "openDt": movie.openDt,
-        // "audiCnt": movie.audiCnt,
-        // "audiAcc": movie.audiCnt,
-        // "posters":json.Data[0].Result[0].posters,
-        // "kmdbURL":json.Data[0].Result[0].kmdbUrl
-    }
+        `/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${tname.id}&ServiceKey=${KEY2}`)
+    ).json().Data.Result;
+    console.log(json)
+    
+    setMovies(json);
+    setLoading(false);
+    // return {
+    //     "DOCID": json.Data[0].Result[0].DOCID,
+    //     "posters":json.Data[0].Result[0].posters,
+    //     "kmdbURL":json.Data[0].Result[0].kmdbUrl
+    // }
 
   };
+  
   useEffect(() => {
     getMovie();
   }, []);
 
   return (
-    <h1>Detail</h1>
+    <div>
+      {loading ? <h1>Loading...</h1> :
+      <div>
+        {movies.map((movie) => 
+        <div key={movie.DOCID}> 
+        <img src={movie.posters.split('|')[0]}></img>
+        </div>)}
+      </div>}
+    </div>
     )
-  
-
 }
 export default Detail;

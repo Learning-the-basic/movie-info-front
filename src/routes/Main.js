@@ -9,14 +9,11 @@ function Main(){
   const [isSearch, setIsSearch] = useState(true);
 
   const [isRank, setisRank] = useState(true);
-  const onClickRank = (event) => {
-    setisRank(true);
-  };
   
   return (
     <div className='container'>
       {isSearch? <Search/> : <h2>error</h2>}
-      {/* {isRank? <RankKofic/> : <h2>error</h2>} */}
+      {isRank? <RankKofic/> : <h2>error</h2>}
     </div>
   )
 }
