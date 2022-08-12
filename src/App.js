@@ -13,26 +13,12 @@ function App () {
     <Router>
       <Nav />
       <Switch>
-        <Route path="/search">
-          <Search />
-        </Route>
-        <Route path="/movie/:id">
-          <Detail />
-        </Route>
-        <Route path="/rank">
-          <RankKofic />
-        </Route>
-        <Route path="/">
-          <Main />
-        </Route>
-        
+        <Route path="/search" exact={true} component={Search}></Route>
+        <Route path="/:title" exact={true} component={Detail}></Route>
+        <Route path="/rank" exact={true} component={RankKofic}></Route>
+        <Route path="/" exact={true} component={Main}></Route>
       </Switch>
       <Footer />
-      {/* <Switch>
-        <Route path="/" exact={true} component={Home}></Route>
-        <Route path="/search" exact={true} component={Search}></Route>
-        <Route path="/detail" exact={true} component={Detail}></Route>
-      </Switch> */}
     </Router>
   );
 };

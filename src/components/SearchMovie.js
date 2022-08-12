@@ -9,13 +9,13 @@ function SearchMovie({id, year, title, poster, rating, director, actor}) {
   const [isName, setisName] = useState(true);
   const onClickName = (event) => {
     setisName(true)
-    console.log(tName)
+    // console.log(tName)
   };
   
   return (
     <div className="movie">
       {isName? 
-        <Link to={`/movie/${tName}`} onClick={onClickName}>
+        <Link to={`/${tName}`} onClick={onClickName}>
         <img src={poster} alt={title} titlt={title}></img>
       <div className="movie__data">
         <h3 className="movie__title">{
