@@ -9,6 +9,7 @@
 ```
 
 * 디렉터리 구조
+
 ```
 movie-app
 ├─ LICENSE
@@ -17,6 +18,11 @@ movie-app
 ├─ package.json
 ├─ public
 │  ├─ favicon.ico
+│  ├─ images
+│  │  ├─ blogger.png
+│  │  ├─ facebook.png
+│  │  ├─ twitter.png
+│  │  └─ watchalogo.png
 │  ├─ index.html
 │  ├─ logo192.png
 │  ├─ logo512.png
@@ -27,20 +33,32 @@ movie-app
    ├─ App.css
    ├─ App.js
    ├─ components
+   │  ├─ Footer
+   │  │  ├─ Footer.js
+   │  │  ├─ Footer.scss
+   │  │  └─ FooterData.js
    │  ├─ Movie.css
    │  ├─ Movie.js
+   │  ├─ Nav
+   │  │  ├─ Nav.js
+   │  │  └─ Nav.scss
    │  ├─ Navigation.js
    │  └─ SearchMovie.js
    ├─ index.js
-   ├─ pages
    ├─ reportWebVitals.js
-   └─ routes
-      ├─ Detail.js
-      ├─ Home.css
-      ├─ Main.js
-      ├─ RanckKofic.js
-      ├─ Search.css
-      ├─ Search.js
-      └─ Search.module.css
+   ├─ routes
+   │  ├─ Detail.js
+   │  ├─ Home.css
+   │  ├─ Main.js
+   │  ├─ RanckKofic.js
+   │  ├─ Search.css
+   │  ├─ Search.js
+   │  ├─ Search.module.css
+   │  └─ Test.js
+   ├─ setupProxy.js
+   └─ styles
+      ├─ common.scss
+      ├─ reset.scss
+      └─ variables.scss
 
 ```
