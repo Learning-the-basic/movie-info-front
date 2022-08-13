@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import React from 'react';
 import moment from 'moment';
+import "./Home.css"
 
 
 function RankKofic() {
@@ -25,6 +26,8 @@ function RankKofic() {
           "rnum": movie.rnum, 
           "openDt": movie.openDt,
           "posters":json.Data[0].Result[0].posters,
+          "prodYear":json.Data[0].Result[0].prodYear,
+          "nation":json.Data[0].Result[0].nation,
           "kmdbURL":json.Data[0].Result[0].kmdbUrl}
       }
       
@@ -49,17 +52,24 @@ function RankKofic() {
 
   return (
     <div>
-      {loading ? <h1>Loading...</h1> :
-      <div>
-        {movies.map(movie => 
-        <div key={movie.rnum}> 
-        <p>{movie.rank}위</p>
-        {/* {console.log(movie)} */}
-        <h3>{movie.title}</h3> 
-        <p>개봉일: {movie.openDt}</p>
-        <img src={movie.posters.split('|')[0]}></img>
-        </div>)}
-      </div>}
+      {loading ? <h1>Loading...</h1> :(
+        <div className="rank">
+          <h2 className="boxofficeRankNm">박스오피스 순위</h2>
+
+            {movies.map(movie => 
+            <div key={movie.rnum} className="boxofficeRank"> 
+              {/* {console.log(movie)} */}
+              <div className="movieRank">{movie.rank}</div>
+              <img className="movieImg" src={movie.posters.split('|')[0]}></img>
+              <h4 className="movieNm">{movie.title}</h4> 
+              <p className="movieInfo">{movie.prodYear} ▪ {movie.nation}</p>
+
+            </div>
+            )
+            }
+
+        </div>
+      )}
     </div>
   );
 }

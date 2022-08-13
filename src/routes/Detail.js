@@ -32,9 +32,20 @@ function Detail() {
       <div>
         {movies.map((movie) => (
           <div key={movie.Result[0].DOCID}> 
+          <img src={movie.Result[0].stlls.split('|')[0]}></img>
           <h3>{movie.Result[0].title.replace(/!HS/gi,"").replace(/!HE/gi,"")}</h3>
-          {/* <img src={movie.posters.split('|')[0]}></img> */}
-          {/* {console.log(movie.Result[0].DOCID)} */}
+          <p>{movie.Result[0].prodYear}</p>
+          <p>{movie.Result[0].genre}</p>
+          <p>{movie.Result[0].nation}</p>
+          <p>{movie.Result[0].runtime}분</p>
+          <p>개봉일: {movie.Result[0].repRatDate}</p>
+          <h4>줄거리</h4>
+          <p>{movie.Result[0].plots.plot[0].plotText}</p>
+          <h4>출연진</h4>
+          {/* <p>{movie.Result[0].actors.actor}</p> */}
+          
+          {console.log(movie.Result[0].actors.actor[0].actorNm)}
+          {console.log(movie)}
           </div>
           
 

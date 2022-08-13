@@ -69,7 +69,6 @@ class Search extends React.Component {
           : (<form onSubmit={this.handleSubmit}>
             <div>
               <div className="input_div">
-                <h1>영화 검색</h1>
                 <input className="input_search" type="text" value={this.state.value} onChange={this.handleChange} placeholder="영화를 검색해 보세요."/>
               </div>
               <div className="movies">
