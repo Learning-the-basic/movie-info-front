@@ -1,0 +1,41 @@
+.movieDetail{
+    margin-left: 5px;
+    width: 90%;
+    background-color: antiquewhite;
+    float:left;
+    position: relative;
+}
+
+.movieDImg{
+    width: 210px;
+    height: 300px;
+    border-radius: 5px;
+    margin: 20px;
+    position: absolute;
+}
+
+.movieDTitle{
+    font-size: 30px;
+    width: auto;
+    height: 70px;
+    position: absolute;
+    margin: 20px 0 0 250px;
+
+}
+
+.movieDInfoRight{
+    font-size: 15px;
+    color: rgb(112, 112, 112);
+    position: absolute;
+    margin: 50px 0 0 250px;
+
+}
+
+.movieDInfoBottom{
+    border: 1px solid rgb(203, 203, 203);
+    border-radius: 5px;
+    padding: 15px;
+    width: 700px;
+    position: absolute;
+    margin: 350px 0 0 20px;
+}

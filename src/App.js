@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from "./routes/Main";
-import Search from "./routes/Search";
+import Search from './components/Nav/Search';
 import Detail from './routes/Detail';
 import Nav from './components/Nav/Nav';;
 

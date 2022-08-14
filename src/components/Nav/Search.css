@@ -1,7 +1,7 @@
 .input_search {
-    width: 600px;
-    margin: 0;
-    height: 51px;
+    width: 60vh;
+    margin: 15px 0px 0px 0px;
+    height: 40px;
     background: none;
     border-bottom: 1px solid #d63461;
     border-radius: 0;
@@ -10,8 +10,9 @@
     border-right: 1px solid transparent;
     padding: 0 5px;
     position: relative;
+    text-align: center;
 }
 
-.input_div {
-  text-align: center;
+.input_search:focus {
+    width: 100vh;
 }

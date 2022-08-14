@@ -58,6 +58,8 @@
 .boxofficeRank {
     float: left;
     padding: 10px;
+    text-decoration: none;
+    color:black;
   }
 
 .movieImg{
@@ -78,7 +80,7 @@
   text-align: center;
   line-height: 23px;
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   margin: 5px;
 }
  .movieNm{

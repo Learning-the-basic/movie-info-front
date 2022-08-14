@@ -10,6 +10,7 @@
 
 * 디렉터리 구조
 
+
 ```
 movie-app
 ├─ LICENSE
@@ -41,20 +42,20 @@ movie-app
    │  ├─ Movie.js
    │  ├─ Nav
    │  │  ├─ Nav.js
-   │  │  └─ Nav.scss
+   │  │  ├─ Nav.scss
+   │  │  ├─ Search.css
+   │  │  └─ Search.js
    │  ├─ Navigation.js
    │  └─ SearchMovie.js
    ├─ index.js
    ├─ reportWebVitals.js
    ├─ routes
+   │  ├─ Detail.css
    │  ├─ Detail.js
    │  ├─ Home.css
    │  ├─ Main.js
    │  ├─ RanckKofic.js
-   │  ├─ Search.css
-   │  ├─ Search.js
-   │  ├─ Search.module.css
-   │  └─ Test.js
+   │  └─ Search.module.css
    ├─ setupProxy.js
    └─ styles
       ├─ common.scss

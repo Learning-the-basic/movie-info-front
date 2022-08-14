@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import moment from 'moment';
 import "./Home.css"
+import { Link } from "react-router-dom";
 
 
 function RankKofic() {
@@ -57,14 +58,13 @@ function RankKofic() {
           <h2 className="boxofficeRankNm">박스오피스 순위</h2>
 
             {movies.map(movie => 
-            <div key={movie.rnum} className="boxofficeRank"> 
+            <Link to={`/${movie.title}`} key={movie.rnum} className="boxofficeRank"> 
               {/* {console.log(movie)} */}
               <div className="movieRank">{movie.rank}</div>
               <img className="movieImg" src={movie.posters.split('|')[0]}></img>
               <h4 className="movieNm">{movie.title}</h4> 
               <p className="movieInfo">{movie.prodYear} ▪ {movie.nation}</p>
-
-            </div>
+            </Link>
             )
             }
 
