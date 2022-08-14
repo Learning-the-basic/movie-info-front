@@ -1,41 +1,108 @@
+.detailWrapper{
+    width: 100%;
+    height: 100%;
+}
+
 .movieDetail{
-    margin-left: 5px;
-    width: 90%;
-    background-color: antiquewhite;
-    float:left;
+    display: inline-block;
+    margin: 0;
+    flex-flow: row-reverse wrap;
+    background-color: rgb(247, 247, 247);
+    width: 100%;
     position: relative;
 }
 
 .movieDImg{
-    width: 210px;
-    height: 300px;
+    width: 250px;
+    height: 360px;
     border-radius: 5px;
-    margin: 20px;
-    position: absolute;
+    margin: 30px auto 20px auto;
 }
 
 .movieDTitle{
     font-size: 30px;
     width: auto;
-    height: 70px;
-    position: absolute;
-    margin: 20px 0 0 250px;
+}
 
+.movieDTopContainer{
+    align-items: stretch;
+    justify-content:flex-start;
+    margin: 0;
+    border-bottom: solid rgb(212, 212, 212) 1px;
+    background-color: white;
+}
+
+.movieDInfoTop{
+    margin: 0 8% 20px 8%;
 }
 
 .movieDInfoRight{
+    display: inline-block;
+    margin: 20px auto 0px 30px;
+    position: absolute;
+    width: 60%;
+}
+
+.movieDInfoRightYGN{
+    display: inline-block;
     font-size: 15px;
     color: rgb(112, 112, 112);
-    position: absolute;
-    margin: 50px 0 0 250px;
+}
 
+.rating{ 
+   position: inline-flex;  
+}
+
+.ratingStar{ 
+    display: inline-block;
+    text-align: center;
+ }
+
+hr{
+    background-color:rgb(204, 204, 204);
+    height:1px;
+    border:0;
+    width: 90%;
+}
+
+.partition{
+    display: inline-block;
+    width:1px;
+    background-color:rgb(204, 204, 204);
+    position:absolute;
+    bottom:0;
+    height: 80px;
+    margin:0 15px;
+}
+
+.ratingComment{
+    display: inline-block;
+    margin-left: 30px;
+    position: relative;
+}
+
+.commentPenImg{
+    width: 25px;
+    height: 25px;
+    margin: 15px;
+    transition:all 0.3s ease-in-out;
+}
+
+.commentPenImg:hover{
+    transform:scale(1.2);
+}
+
+.ratingComment>p{
+    display: inline-block;
+    position: absolute;
+    margin-top: 20px;
+    width: 50px;
 }
 
 .movieDInfoBottom{
+    
     border: 1px solid rgb(203, 203, 203);
     border-radius: 5px;
     padding: 15px;
     width: 700px;
-    position: absolute;
-    margin: 350px 0 0 20px;
 }
