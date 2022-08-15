@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Rating } from 'react-simple-star-rating'
-import "./Detail.css"
+import "../styles/Detail.css"
 import Footer from "../components/Footer/Footer";
 
 function Detail() {

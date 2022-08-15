@@ -47,6 +47,8 @@ body{
 
   .rank{
     padding: 10px;
+    margin: 20px 5% 0 5%;
+    
   }
   
   .boxofficeRankNm{
@@ -62,13 +64,14 @@ body{
     margin: 10px;
     text-decoration: none;
     color:black;
+    
   }
 
 .movieImg{
     border-radius: 5px;
     position: relative;
-    width: 210px;
-    height: 300px;
+    width: 250px;
+    height: 360px;
     overflow: hidden;
     transition:all 0.3s ease-in-out;
 }
