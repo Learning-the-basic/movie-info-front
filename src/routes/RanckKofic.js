@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import moment from 'moment';
 import "../styles/Home.css"
+import "../styles/Slick.css"
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
@@ -9,13 +10,16 @@ import 'slick-carousel/slick/slick-theme.css';
 
 //Slick
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "black",}}
-      onClick={onClick}
-    />
+    <div className={className}
+    onClick={onClick}>
+      <div className="nextButton">
+        <img src="/images/next(g).png" alt="next" className="nextButtonG"/>
+        <img src="/images/next(b).png" alt="next" className="nextButtonB"/>
+      </div>
+    </div>
+    
   );
 }
 
@@ -24,7 +28,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "red" }}
+      style={{ ...style, display: "block"}}
       onClick={onClick}
     />
   );
@@ -87,18 +91,21 @@ function RankKofic() {
           breakpoint: 1200, // 화면 사이즈 1200px
           settings: {
             slidesToShow: 3,
+            slidesToScroll: 3,
           }
       },
       {
         breakpoint: 1023,
         settings: {
-          slidesToShow: 3
+          slidesToShow: 3,
+          slidesToScroll: 3,
         }
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
+          slidesToScroll: 1,
         }
       }
     ]
