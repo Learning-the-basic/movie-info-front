@@ -10,11 +10,9 @@
 
 * 디렉터리 구조
 
-
 ```
-movie-app
+movie-info-front
 ├─ LICENSE
-├─ mock
 ├─ package-lock.json
 ├─ package.json
 ├─ public
@@ -22,6 +20,12 @@ movie-app
 │  ├─ images
 │  │  ├─ blogger.png
 │  │  ├─ facebook.png
+│  │  ├─ more.png
+│  │  ├─ next(b).png
+│  │  ├─ next(g).png
+│  │  ├─ pen.png
+│  │  ├─ plus.png
+│  │  ├─ see.png
 │  │  ├─ twitter.png
 │  │  └─ watchalogo.png
 │  ├─ index.html
@@ -31,7 +35,6 @@ movie-app
 │  └─ robots.txt
 ├─ README.md
 └─ src
-   ├─ App.css
    ├─ App.js
    ├─ components
    │  ├─ Footer
@@ -50,16 +53,17 @@ movie-app
    ├─ index.js
    ├─ reportWebVitals.js
    ├─ routes
-   │  ├─ Detail.css
    │  ├─ Detail.js
-   │  ├─ Home.css
    │  ├─ Main.js
-   │  ├─ RanckKofic.js
-   │  └─ Search.module.css
+   │  └─ RanckKofic.js
    ├─ setupProxy.js
    └─ styles
+      ├─ App.css
       ├─ common.scss
+      ├─ Detail.css
+      ├─ Home.css
       ├─ reset.scss
+      ├─ Slick.css
       └─ variables.scss
 
 ```
