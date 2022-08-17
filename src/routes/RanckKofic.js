@@ -54,10 +54,11 @@ function RankKofic() {
         "rank": movie.rank,
         "rnum": movie.rnum,
         "openDt": movie.openDt,
-        "posters": json.Data[0].Result[0].posters,
-        "prodYear": json.Data[0].Result[0].prodYear,
-        "nation": json.Data[0].Result[0].nation,
-        "kmdbURL": json.Data[0].Result[0].kmdbUrl
+        "jsonData": json.Data[0]
+        // "posters": json.Data[0].Result[0],posters
+        // "prodYear": json.Data[0].Result[0].prodYear,
+        // "nation": json.Data[0].Result[0].nation,
+        // "kmdbURL": json.Data[0].Result[0].kmdbUrl
       }
     }
 
@@ -119,11 +120,12 @@ function RankKofic() {
           <Slider {...settings} className="boxofficeRankContainer">
               {movies.map(movie =>
                 <Link to={`/${movie.title}`} key={movie.rnum} className="boxofficeRank">
-                  {/* {console.log(movie)} */}
+                  {/* {console.log((movie.jsonData.Result==undefined)?'없음':movie.jsonData.Result[0].nation)} */}
                   <div className="movieRank">{movie.rank}</div>
-                  <img className="movieImg" src={movie.posters.split('|')[0]}></img>
+                  <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result==undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
                   <h4 className="movieNm">{movie.title}</h4>
-                  <p className="movieInfo">{movie.prodYear} ▪ {movie.nation}</p>
+                  <p className="movieInfo">{(movie.jsonData.Result==undefined)?'':movie.jsonData.Result[0].prodYear} ▪ 
+                    {(movie.jsonData.Result==undefined)?'':movie.jsonData.Result[0].nation}</p>
                 </Link>
               )
               }
