@@ -3,8 +3,7 @@ import RankKofic from "../components/rank";
 
 const Main = () => {
   return (
-    <div>
-      <p className="main-text">Main page</p>
+    <div className="movie-main">
       <RankKofic/>
     </div>
   )

@@ -11,8 +11,8 @@ function SampleNextArrow(props) {
     <div className={className}
          onClick={onClick}>
       <div className="nextButton">
-        <img src="/images/next(g).png" alt="next" className="nextButtonG"/>
-        <img src="/images/next(b).png" alt="next" className="nextButtonB"/>
+        {/*<img src="/images/next_button.png" alt="next" className="nextButtonG"/>*/}
+        <img src="/images/next_button.png" alt="next" className="nextButtonB"/>
       </div>
     </div>
 
