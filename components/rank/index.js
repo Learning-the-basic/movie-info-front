@@ -3,6 +3,7 @@ import React from 'react';
 import moment from 'moment';
 import { Link } from "next/link";
 import Slider from "react-slick";
+import {useRouter} from "next/router";
 
 //Slick
 function SampleNextArrow(props) {
@@ -31,6 +32,7 @@ function SamplePrevArrow(props) {
 }
 
 const RankKofic = () => {
+  const router = useRouter()
   const KEY1 = "06fe7383576234f02a83e4993c927e1f"  //영화진흥위원회
   const KEY2 = "80HF21BI401E15RFQ193"    //KMDB
   const DATE = moment().subtract(1, 'day').format('YYYYMMDD');
@@ -113,7 +115,7 @@ const RankKofic = () => {
           <Slider {...settings} className="boxofficeRankContainer">
             {movies.map((movie, index) =>
                 (
-                  <div className="boxofficeRank" key={index}>
+                  <div className="boxofficeRank" key={index} onClick={() => router.push(`/detail/${movie.title}`)}>
                     <div className="movieRank">{movie.rank}</div>
                     <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result==undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
                     <h4 className="movieNm">{movie.title}</h4>

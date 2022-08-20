@@ -6,7 +6,9 @@ const Layout = ({ children }) => {
   return (
     <div className="movie-container">
       <Header/>
-      { children }
+        <div className="movie-main">
+          { children }
+        </div>
       <Footer/>
     </div>
   )
