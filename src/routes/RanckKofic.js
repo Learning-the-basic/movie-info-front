@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import moment from 'moment';
 import "../styles/Home.css"
-import "../styles/Slick.css"
+import "../styles/slick.css"
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
