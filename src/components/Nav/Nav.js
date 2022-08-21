@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect  } from 'react';
 import './Nav.scss';
 import Search from './Search';
 import { Link } from "react-router-dom";
+import LoginButton from '../user/LoginButton';
 
-export default class Nav extends Component {
-  
-  
-  render() {
+
+const Nav = props => {
+  let [clicked, setClicked] = useState(false);
+
+  function handleLogin(e) {
+    !clicked ? setClicked(true) : setClicked(false);
+  }
+
     
     return (
       <>
@@ -24,15 +29,24 @@ export default class Nav extends Component {
               <Search />   
             </div>
             <div className="navbar-right">
-              <div className="btn-container">
-                <button className="btn-login">로그인</button>
-                <button className="btn-signup">회원가입</button>
-              </div>
+                { props.authenticated?(
+                       <ul>
+
+                             <li>
+                                 <a onClick={props.onLogout}>Logout</a>
+                             </li>
+                       </ul>
+                  ): (
+                         <LoginButton authenticated={props.authenticated} {...props}>
+                         </LoginButton>
+                )}
+
             </div>
           </div>
         </nav>
       </>
     );
-  }
-}
+ };
 
+
+export default Nav;
