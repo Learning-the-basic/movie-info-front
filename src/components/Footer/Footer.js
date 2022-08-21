@@ -39,7 +39,7 @@ export default class Footer extends Component {
                 <img
                   className="logo"
                   alt="atchapedia"
-                  src="images/watchalogo.png"
+                  src="/images/watchalogo.png"
                 />
                 © 
               </div>
@@ -48,13 +48,13 @@ export default class Footer extends Component {
               <div className="select-language">한국어</div>
               <div className="footer-right-icons">
                 <a href="!#">
-                  <img alt="facebook" src="images/facebook.png" />
+                  <img alt="facebook" src="/images/facebook.png" />
                 </a>
                 <a href="!#">
-                  <img alt="twitter" src="images/twitter.png" />
+                  <img alt="twitter" src="/images/twitter.png" />
                 </a>
                 <a href="!#">
-                  <img alt="blogger" src="images/blogger.png" />
+                  <img alt="blogger" src="/images/blogger.png" />
                 </a>
               </div>
             </div>
