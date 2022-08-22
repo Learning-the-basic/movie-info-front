@@ -12,8 +12,8 @@ function SampleNextArrow(props) {
     <div className={className}
          onClick={onClick}>
       <div className="nextButton">
-        {/*<img src="/images/next_button.png" alt="next" className="nextButtonG"/>*/}
-        <img src="/images/next_button.png" alt="next" className="nextButtonB"/>
+        <img src="/images/next_button(g).png" alt="next" className="nextButtonG"/>
+        <img src="/images/next_button(b).png" alt="next" className="nextButtonB"/>
       </div>
     </div>
 
@@ -117,10 +117,10 @@ const RankKofic = () => {
                 (
                   <div className="boxofficeRank" key={index} onClick={() => router.push(`/detail/${movie.title}`)}>
                     <div className="movieRank">{movie.rank}</div>
-                    <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result==undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
+                    <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result===undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
                     <h4 className="movieNm">{movie.title}</h4>
-                    <p className="movieInfo">{(movie.jsonData.Result==undefined)?'':movie.jsonData.Result[0].prodYear} ▪
-                      {(movie.jsonData.Result==undefined)?'':movie.jsonData.Result[0].nation}</p>
+                    <p className="movieInfo">{(movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].prodYear} ▪
+                      {(movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].nation}</p>
                   </div>
                 )
               )
