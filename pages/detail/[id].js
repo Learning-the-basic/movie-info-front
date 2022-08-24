@@ -17,6 +17,13 @@ function Detail() {
     console.log(rating)
   }
 
+  //줄거리 더보기
+  const [closedPlot, setClosedPlot] = useState(false);
+
+  const handleMoreBtn = () => {
+    setClosedPlot(!closed);
+  }
+
   //영화정보
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -129,7 +136,10 @@ function Detail() {
                     <p>개봉 : {moment(movie.Result[0].repRlsDate).format("YYYY.MM.DD")}</p>
                     <div className="movieDplotText">
                       <h3>줄거리</h3>
-                      <p>{movie.Result[0].plots.plot[0].plotText}</p>
+                      {/* <p>{movie.Result[0].plots.plot[0].plotText}</p> */}
+                      <p className={closedPlot ? "openPlot" : "closePlot"}
+                        onClick={handleMoreBtn}
+                      >{movie.Result[0].plots.plot[0].plotText}</p>
                       
                     </div>
                     
