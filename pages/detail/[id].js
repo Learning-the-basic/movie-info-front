@@ -20,7 +20,8 @@ function Detail() {
   //줄거리 더보기
   const [closedPlot, setClosedPlot] = useState(false);
 
-  const handleMoreBtn = () => {
+
+  const handleMorePlot = () => {
     setClosedPlot(closedPlot => !closedPlot);
   }
 
@@ -70,7 +71,7 @@ function Detail() {
                     <div className="rating">
                       <div className="ratingStar">
                         <p>평가하기</p>
-                        <Rating onClick={handleRating} ratingValue={rating} size={`40px`}
+                        <Rating onClick={handleRating} size={`40px`}
                         // tooltipArray={['1점', '2점', '3점', '4점','5점']}
                         // tooltipDefaultText={'점수'}
                         // showTooltip
@@ -137,9 +138,20 @@ function Detail() {
                     <div className="movieDplotText">
                       <h3>줄거리</h3>
                       <p className={closedPlot ? "openPlot" : "closePlot"}
-                        onClick={handleMoreBtn}
-                      >{movie.Result[0].plots.plot[0].plotText}</p>
-                      
+                        onClick={handleMorePlot}>
+                        {movie.Result[0].plots.plot[0].plotText}
+                      </p>
+                      <div className={movie.Result[0].plots.plot[0].plotText.length<=150? "plotBtnOff": "plotBtnOn"}>
+                        <button className={closedPlot ? "moreButtonOff" : "moreButtonOn"}
+                          onClick={handleMorePlot}>
+                          {"더보기"}
+                        </button>
+                        <button className={closedPlot ? "moreButtonOn" : "moreButtonOff"}
+                          onClick={handleMorePlot}>
+                          {"닫기"}
+                        </button>
+                      </div>
+
                     </div>
                     
                     <h3>출연진</h3>

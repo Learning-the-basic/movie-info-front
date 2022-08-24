@@ -161,3 +161,27 @@ hr{
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
+.plotBtnOn{
+    
+    text-align: center;
+}
+.moreButtonOn{
+    font-size: 12px;
+    margin-top: 5px;
+    padding:6px;
+    border: 1px solid rgb(203, 203, 203);
+    border-radius: 4px;
+    color: #000;
+    background-color:white;
+    
+    // box-shadow:
+    // -7px -7px 20px 0px #fff9,
+    // // -4px -4px 5px 0px #fff9,
+    // 2px 2px 5px 0px #0002,
+    // 2px 2px 2px 0px #0001;
+}
+
+.moreButtonOff, .plotBtnOff {
+    display: none;
+}
