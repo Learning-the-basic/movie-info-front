@@ -154,10 +154,11 @@ function Detail() {
 
                     </div>
                     
-                    <h3>출연진</h3>
-                    <p>{movie.Result[0].actors.actor.map(actor => actor.actorNm)}</p>
+                    <h3>출연/제작</h3>
+                    <p className="direcor">감독: {movie.Result[0].directors.director.map(director => director.directorNm)}</p>
+                    <p>출연: {movie.Result[0].actors.actor.map(actor => actor.actorNm)+','.slice(0, -1)}</p>
                     {/* {console.log(movie.Result[0])} */}
-                    {/* {console.log(movie.Result[0].actors.actor.map(actor => actor.actorNm))} */}
+                    {/* {console.log(movie.Result[0].actors.actor.map(actor => actor.actorNm)+',')} */}
                   </div>
                 </div>
               </div>
