@@ -21,16 +21,51 @@ function SampleNextArrow(props) {
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block"}}
-      onClick={onClick}
-    />
+    <div className={className}
+         onClick={onClick}>
+      <div className="backButton">
+        <img src="/images/back_button(g).png" alt="next" className="backButtonG"/>
+        <img src="/images/back_button(b).png" alt="next" className="backButtonB"/>
+      </div>
+    </div>
   );
 }
 
+const settings = {
+  dots: false,
+  infinite: true,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [ // 반응형 웹 구현 옵션
+    {
+      breakpoint: 1200, // 화면 사이즈 1200px
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 1023,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    }
+  ]
+};
+
+//순위
 const RankKofic = () => {
   const router = useRouter()
   const KEY1 = "06fe7383576234f02a83e4993c927e1f"  //영화진흥위원회
@@ -75,37 +110,6 @@ const RankKofic = () => {
     getBoxOffice();
   }, [DATE]);
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    responsive: [ // 반응형 웹 구현 옵션
-      {
-        breakpoint: 1200, // 화면 사이즈 1200px
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        }
-      },
-      {
-        breakpoint: 1023,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        }
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
-  };
 
   return (
     <div>

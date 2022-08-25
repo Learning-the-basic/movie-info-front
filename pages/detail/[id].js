@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Rating } from 'react-simple-star-rating'
 import moment from "moment";
+import Slider from "react-slick";
 // import '.../styles/app.scss'; 
 // import Footer from "../components/Footer/Footer";
 
@@ -135,6 +136,7 @@ function Detail() {
                     <p>{movie.Result[0].prodYear} ▪ {movie.Result[0].genre} ▪ {movie.Result[0].nation}</p>
                     <p>{movie.Result[0].runtime}분 ▪ {movie.Result[0].rating}</p>
                     <p>개봉 : {moment(movie.Result[0].repRlsDate).format("YYYY.MM.DD")}</p>
+                    <hr style={{margin: "20px 0 0 0"}}/>
                     <div className="movieDplotText">
                       <h3>줄거리</h3>
                       <p className={closedPlot ? "openPlot" : "closePlot"}
@@ -151,15 +153,35 @@ function Detail() {
                           {"닫기"}
                         </button>
                       </div>
-
                     </div>
-                    
+                    <hr style={{margin: "20px 0 0 0"}}/>
                     <h3>출연/제작</h3>
                     <p className="direcor">감독: {movie.Result[0].directors.director.map(director => director.directorNm)}</p>
                     <p>출연: {movie.Result[0].actors.actor.map(actor => actor.actorNm)+','.slice(0, -1)}</p>
-                    {/* {console.log(movie.Result[0])} */}
-                    {/* {console.log(movie.Result[0].actors.actor.map(actor => actor.actorNm)+',')} */}
+                    <hr style={{ margin: "20px 0 0 0" }} />
+                    <h3>포스터</h3>
+                    <Slider className="moviePosters">
+                      {
+                        movie.Result[0].posters.split('|').map(
+                          posters =>
+                            (<img src={posters} key={posters}></img>))
+                      }
+                    </Slider>
+                    <hr style={{margin: "20px 0 0 0"}}/>
+                    <h3>스틸컷</h3>
+                    <Slider className="movieStills">
+                      {
+                        movie.Result[0].stlls.split('|').map(
+                          stlls =>
+                            (<img src={stlls} key={stlls}></img>))
+                      }
+                    </Slider>
                   </div>
+                </div>
+
+                <div className="movieDInfoBottomRight">
+                  <h3>코멘트</h3>
+                  <div className="movieComment">코멘트</div>
                 </div>
               </div>
             </div>
