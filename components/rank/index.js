@@ -1,43 +1,17 @@
 import { useState, useEffect } from "react";
 import React from 'react';
 import moment from 'moment';
-import { Link } from "next/link";
 import Slider from "react-slick";
 import {useRouter} from "next/router";
+import NextArrow from "../button/NextArrow";
+import PrevArrow from "../button/PrevArrow";
 
 //Slick
-function SampleNextArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <div className={className}
-         onClick={onClick}>
-      <div className="nextButton">
-        <img src="/images/next_button(g).png" alt="next" className="nextButtonG"/>
-        <img src="/images/next_button(b).png" alt="next" className="nextButtonB"/>
-      </div>
-    </div>
-
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <div className={className}
-         onClick={onClick}>
-      <div className="backButton">
-        <img src="/images/back_button(g).png" alt="next" className="backButtonG"/>
-        <img src="/images/back_button(b).png" alt="next" className="backButtonB"/>
-      </div>
-    </div>
-  );
-}
-
 const settings = {
   dots: false,
   infinite: true,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
   slidesToShow: 5,
   slidesToScroll: 5,
   responsive: [ // 반응형 웹 구현 옵션

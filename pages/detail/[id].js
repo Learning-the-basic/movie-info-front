@@ -2,9 +2,10 @@ import { React, useEffect, useState } from "react";
 import { Rating } from 'react-simple-star-rating'
 import moment from "moment";
 import Slider from "react-slick";
+import NextArrow from "../../components/button/NextArrow";
+import PrevArrow from "../../components/button/PrevArrow";
 // import '.../styles/app.scss'; 
 // import Footer from "../components/Footer/Footer";
-
 import {useRouter} from "next/router";
 
 function Detail() {
@@ -20,8 +21,6 @@ function Detail() {
 
   //줄거리 더보기
   const [closedPlot, setClosedPlot] = useState(false);
-
-
   const handleMorePlot = () => {
     setClosedPlot(closedPlot => !closedPlot);
   }
@@ -51,6 +50,16 @@ function Detail() {
   }, [NAME]);
 
   // console.log(movies)
+
+  //Slick
+  const settings = {
+    dots: true,
+    infinite: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    slidesToShow: 2,
+    slidesToScroll: 2
+  };
 
   return (
     <div >
@@ -154,28 +163,33 @@ function Detail() {
                         </button>
                       </div>
                     </div>
-                    <hr style={{margin: "20px 0 0 0"}}/>
+                    <hr style={{ margin: "20px 0 0 0" }} />
                     <h3>출연/제작</h3>
                     <p className="direcor">감독: {movie.Result[0].directors.director.map(director => director.directorNm)}</p>
-                    <p>출연: {movie.Result[0].actors.actor.map(actor => actor.actorNm)+','.slice(0, -1)}</p>
+                    <p>출연: {movie.Result[0].actors.actor.map(actor => actor.actorNm) + ','.slice(0, -1)}</p>
                     <hr style={{ margin: "20px 0 0 0" }} />
                     <h3>포스터</h3>
-                    <Slider className="moviePosters">
-                      {
-                        movie.Result[0].posters.split('|').map(
-                          posters =>
-                            (<img src={posters} key={posters}></img>))
-                      }
-                    </Slider>
-                    <hr style={{margin: "20px 0 0 0"}}/>
+                    <div className="moviePostersContainer">
+                      <Slider {...settings} >
+                        {
+                          movie.Result[0].posters.split('|').map(
+                            posters =>
+                              (<img src={posters} key={posters} className="moviePosters"></img>))
+                        }
+                      </Slider>
+                    </div>
+                    <hr style={{ margin: "20px 0 0 0" }} />
+
                     <h3>스틸컷</h3>
-                    <Slider className="movieStills">
-                      {
-                        movie.Result[0].stlls.split('|').map(
-                          stlls =>
-                            (<img src={stlls} key={stlls}></img>))
-                      }
-                    </Slider>
+                    <div className="movieStillsContainer">
+                      <Slider {...settings}>
+                        {
+                          movie.Result[0].stlls.split('|').map(
+                            stlls =>
+                              (<img src={stlls} key={stlls}></img>))
+                        }
+                      </Slider>
+                    </div>
                   </div>
                 </div>
 
