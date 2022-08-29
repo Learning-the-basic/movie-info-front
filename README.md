@@ -10,7 +10,7 @@ movie-info-front
 │  └─ └─ index.js (박스 오피스 순위)
 ├─ pages
 │  ├─ detail
-│  │  └─ index.js (영화 상세 정보)
+│  │  └─ [id].js (영화 상세 정보)
 │  ├─ _app.js
 │  └─ index.js 
 ├─ public

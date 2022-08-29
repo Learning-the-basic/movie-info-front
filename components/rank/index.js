@@ -1,36 +1,45 @@
 import { useState, useEffect } from "react";
 import React from 'react';
 import moment from 'moment';
-import { Link } from "next/link";
 import Slider from "react-slick";
 import {useRouter} from "next/router";
+import NextArrow from "../button/NextArrow";
+import PrevArrow from "../button/PrevArrow";
 
 //Slick
-function SampleNextArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <div className={className}
-         onClick={onClick}>
-      <div className="nextButton">
-        {/*<img src="/images/next_button.png" alt="next" className="nextButtonG"/>*/}
-        <img src="/images/next_button.png" alt="next" className="nextButtonB"/>
-      </div>
-    </div>
+const settings = {
+  dots: false,
+  infinite: true,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [ // 반응형 웹 구현 옵션
+    {
+      breakpoint: 1200, // 화면 사이즈 1200px
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 1023,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    }
+  ]
+};
 
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block"}}
-      onClick={onClick}
-    />
-  );
-}
-
+//순위
 const RankKofic = () => {
   const router = useRouter()
   const KEY1 = "06fe7383576234f02a83e4993c927e1f"  //영화진흥위원회
@@ -75,37 +84,6 @@ const RankKofic = () => {
     getBoxOffice();
   }, [DATE]);
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    responsive: [ // 반응형 웹 구현 옵션
-      {
-        breakpoint: 1200, // 화면 사이즈 1200px
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        }
-      },
-      {
-        breakpoint: 1023,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        }
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
-  };
 
   return (
     <div>
@@ -117,10 +95,10 @@ const RankKofic = () => {
                 (
                   <div className="boxofficeRank" key={index} onClick={() => router.push(`/detail/${movie.title}`)}>
                     <div className="movieRank">{movie.rank}</div>
-                    <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result==undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
+                    <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result===undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
                     <h4 className="movieNm">{movie.title}</h4>
-                    <p className="movieInfo">{(movie.jsonData.Result==undefined)?'':movie.jsonData.Result[0].prodYear} ▪
-                      {(movie.jsonData.Result==undefined)?'':movie.jsonData.Result[0].nation}</p>
+                    <p className="movieInfo">{(movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].prodYear} ▪
+                      {(movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].nation}</p>
                   </div>
                 )
               )
