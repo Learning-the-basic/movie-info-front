@@ -29,22 +29,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
-<<<<<<< HEAD
-<<<<<<< HEAD
-    ],
-    "/detail": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/detail.js"
-=======
->>>>>>> Yang
-=======
-    ],
-    "/detail/[id]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/detail/[id].js"
->>>>>>> soojung
     ]
   },
   "ampFirstPages": []
