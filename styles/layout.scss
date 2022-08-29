@@ -28,6 +28,19 @@
         border-radius: 10px;
       }
     }
+    .search {
+      .searchInput {
+        width: 300px;
+        height: 30px;
+        font-size: 16px; 
+        padding-left: 10px; 
+        border-radius: 5px;
+      }
+      .filterSearch {
+        display: 'flex';
+        flex-direction: 'column';
+      }
+    }
   }
 
   .movie-main {
