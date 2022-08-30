@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import DefaultInput from "./input";
 import {useSetRecoilState} from "recoil";
-import {defaultPopupOpen} from "../../atom";
+import {defaultPopup} from "../../atom";
 
 const Login = () => {
-  const openPopup = useSetRecoilState(defaultPopupOpen);
+  const openPopup = useSetRecoilState(defaultPopup);
   const [loginData, setLoginData] = useState({ user_id: '', password: '' });
 
   return (

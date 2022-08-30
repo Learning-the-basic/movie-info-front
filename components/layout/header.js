@@ -1,11 +1,12 @@
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { defaultPopupOpen } from "../../atom";
+import { defaultPopup } from "../../atom";
 import Search from "./search";
 import Link from 'next/link'
 
 const Header = () => {
-  const setLoginPopup = useSetRecoilState(defaultPopupOpen);
+  const setLoginPopup = useSetRecoilState(defaultPopup);
+
   return (
     <div className="header">
       <Link href={'/'}>

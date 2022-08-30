@@ -4,10 +4,10 @@ import Footer from "./footer";
 import DefaultPopup from "../popup/defaultPopup";
 import Login from "../form/login";
 import { useRecoilValue } from "recoil";
-import { defaultPopupOpen } from "../../atom";
+import { defaultPopup } from "../../atom";
 
 const Layout = ({ children }) => {
-  const openPopup = useRecoilValue(defaultPopupOpen);
+  const openPopup = useRecoilValue(defaultPopup);
 
   return (
     <div className="movie-container">

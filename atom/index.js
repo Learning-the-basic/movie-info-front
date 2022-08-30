@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const defaultPopupOpen = atom({
-  key: 'defaultPopupOpen',
+export const defaultPopup = atom({
+  key: 'defaultPopup',
   default: ''
 })
