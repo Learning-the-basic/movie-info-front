@@ -195,7 +195,19 @@ function Detail() {
 
                 <div className="movieDInfoBottomRight">
                   <h3>코멘트</h3>
-                  <div className="movieComment">코멘트</div>
+                  <div className="movieComment">
+                    <div className="commentUserInfo">
+                        {/* 유저 사진 */}
+                      <div className="commentUserImg"></div>
+                        {/* 유저 이름 */}
+                      <div className="commentUserName"> 유저이름</div>
+                      <div className="commentStar">별점</div>
+                    </div>
+                    <hr style={{backgroundColor:"rgb(190, 190, 190)"}}/>
+                    <div className="commentText">
+                      코멘트 내용
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
