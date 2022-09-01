@@ -5,6 +5,7 @@ import DefaultPopup from "../popup/defaultPopup";
 import Login from "../form/login";
 import { useRecoilValue } from "recoil";
 import { defaultPopup } from "../../atom";
+import Join from "../form/join";
 
 const Layout = ({ children }) => {
   const openPopup = useRecoilValue(defaultPopup);
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
       }
       {openPopup === 'join' &&
         <DefaultPopup title={'회원가입'}>
-          회원가입
+          <Join/>
         </DefaultPopup>
       }
     </div>

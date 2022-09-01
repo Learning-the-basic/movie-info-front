@@ -1,11 +1,12 @@
-import React from "react";
-import { useSetRecoilState } from "recoil";
-import { defaultPopup } from "../../atom";
+import React, {useEffect, useState, useRef} from "react";
+import {useRecoilState, useRecoilValue} from "recoil";
+import {defaultPopup, userToken} from "../../atom";
 import Search from "./search";
 import Link from 'next/link'
 
 const Header = () => {
-  const setLoginPopup = useSetRecoilState(defaultPopup);
+  const [popup, setLoginPopup] = useRecoilState(defaultPopup);
+  const [isToken, setIsToken] = useRecoilState(userToken);
 
   return (
     <div className="header">
@@ -17,8 +18,18 @@ const Header = () => {
       </Link>
       <Search/>
       <div className="header-button-container">
-        <button className="login" onClick={() => setLoginPopup('login')}>로그인</button>
-        <button className="login" onClick={() => setLoginPopup('join')}>회원가입</button>
+        {isToken !== '' ?
+          (
+            <button className="login" onClick={() => setIsToken('')}>로그아웃</button>
+          )
+          :
+          (
+            <>
+              <button className="login" onClick={() => setLoginPopup('login')}>로그인</button>
+              <button className="login" onClick={() => setLoginPopup('join')}>회원가입</button>
+            </>
+          )
+        }
       </div>
     </div>
   )
