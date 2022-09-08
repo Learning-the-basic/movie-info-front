@@ -23,6 +23,23 @@
       border-radius: 5px;
     }
   }
+  .validation-notice {
+    display: none;
+  }
+  &.disabled {
+    .input-container {
+      & > input {
+        border-color: #ec0019;
+      }
+    }
+    .validation-notice {
+      display: block;
+      color: #ec0019;
+      font-size: 13px;
+      margin-top: -8px;
+      margin-bottom: 15px;
+    }
+  }
 }
 // 로그인 Form
 .login-form {
@@ -37,6 +54,7 @@
     border: none;
     border-radius: 5px;
     margin-top: 15px;
+    cursor: pointer;
     &.login {
       color: #ffffff;
       background: #1e90ff;
@@ -45,6 +63,11 @@
       color: #000000;
       background: #ffffff;
       border: 1px solid #72787F;
+    }
+    &.disabled {
+      color: #ffffff !important;
+      background: #72787F !important;
+      cursor: not-allowed;
     }
   }
 }

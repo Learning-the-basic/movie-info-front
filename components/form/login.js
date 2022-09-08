@@ -2,30 +2,34 @@ import React, {useEffect, useState} from "react";
 import DefaultInput from "./input";
 import {useSetRecoilState} from "recoil";
 import {defaultPopup, userToken} from "../../atom";
-// import GoogleLogin from "react-google-login";
 import {ltbLogin} from "../../api/ltb";
 
 const Login = () => {
   const setUserToken = useSetRecoilState(userToken);
   const openPopup = useSetRecoilState(defaultPopup);
-  const [loginData, setLoginData] = useState({ user_id: '', password: '' });
+  const [isDisable, setDisable] = useState(false);
+  const [loginData, setLoginData] = useState({ email: '', password: '' });
 
-  const googleSuccess = (res) => {
-    console.log('success');
-    console.log(res)
-  }
-
-  const googleFail = (res) => {
-    console.log('fail');
-    console.log(res);
-  }
+  // 로그인 버튼 활성/비활성화 처리
+  useEffect(() => {
+    const re = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    if (loginData.email.length > 0) {
+      if (re.test(loginData.email)) {
+        setDisable(true);
+      } else {
+        setDisable(false);
+      }
+    } else {
+      setDisable(true);
+    }
+  }, [loginData.email])
 
   const isLogin = () => {
-    setUserToken('tokenTest');
-    openPopup('');
-    // ltbLogin(loginData).then((res) => {
-    //   console.log(res);
-    // })
+    ltbLogin(loginData).then((res) => {
+      localStorage.setItem('user_token', res.accessToken);
+      setUserToken(res.accessToken);
+      openPopup('');
+    })
   }
 
   return (
@@ -33,10 +37,11 @@ const Login = () => {
       <DefaultInput
         type={'text'}
         label={'아이디'}
-        value={ loginData.user_id }
+        value={ loginData.email }
         onChange={
-          (e) => setLoginData({...loginData, user_id: e.target.value})
+          (e) => setLoginData({...loginData, email: e.target.value})
         }
+        isValidation={isDisable}
       />
       <DefaultInput
         type={'password'}
@@ -47,18 +52,12 @@ const Login = () => {
         }
       />
       <button
-        className="login-form-btn login"
+        className={`login-form-btn login ${!isDisable ? 'disabled' : ''}`}
+        disabled={!isDisable}
         onClick={() => isLogin()}
       >
         로그인
       </button>
-      {/*<GoogleLogin*/}
-      {/*  clientId={'297155808615-ijupjhp7qho4ishis9ig7ftifuucvr7e.apps.googleusercontent.com'}*/}
-      {/*  buttonText={'구글 로그인'}*/}
-      {/*  responseType={'id_token'}*/}
-      {/*  onSuccess={googleSuccess}*/}
-      {/*  onFailure={googleFail}*/}
-      {/*/>*/}
       <button
         className="login-form-btn join"
         onClick={() => openPopup('join')}

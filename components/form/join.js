@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import DefaultInput from "./input";
 import {ltbJoin} from "../../api/ltb";
 import {useSetRecoilState} from "recoil";
@@ -6,10 +6,27 @@ import {defaultPopup} from "../../atom";
 
 const Join = () => {
   const openPopup = useSetRecoilState(defaultPopup);
-  const [joinData, setJoinData] = useState({ user_id: '', user_name: '', password: '' });
+  const [isDisable, setDisable] = useState(false);
+  const [joinData, setJoinData] = useState({ email: '', name: '', password: '' });
+
+  // 회원가입 버튼 활성/비활성화 처리
+  useEffect(() => {
+    const re = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    if (joinData.email.length > 0) {
+      if (re.test(joinData.email)) {
+        setDisable(true);
+      } else {
+        setDisable(false);
+      }
+    } else {
+      setDisable(true);
+    }
+  }, [joinData.email])
 
   const register = () => {
-    ltbJoin(joinData);
+    ltbJoin(joinData).then((res) => {
+      openPopup('');
+    });
   }
 
   return (
@@ -17,17 +34,18 @@ const Join = () => {
       <DefaultInput
         type={'text'}
         label={'아이디'}
-        value={ joinData.user_id }
+        value={ joinData.email }
         onChange={
-          (e) => setJoinData({...joinData, user_id: e.target.value})
+          (e) => setJoinData({...joinData, email: e.target.value})
         }
+        isValidation={isDisable}
       />
       <DefaultInput
         type={'text'}
         label={'이름'}
-        value={ joinData.user_name }
+        value={ joinData.name }
         onChange={
-          (e) => setJoinData({...joinData, user_name: e.target.value})
+          (e) => setJoinData({...joinData, name: e.target.value})
         }
       />
       <DefaultInput
@@ -39,7 +57,7 @@ const Join = () => {
         }
       />
       <button
-        className="login-form-btn login"
+        className={`login-form-btn login ${!isDisable ? 'disabled' : ''}`}
         onClick={() => register()}
       >
         회원가입

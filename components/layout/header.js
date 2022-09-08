@@ -8,6 +8,13 @@ const Header = () => {
   const [popup, setLoginPopup] = useRecoilState(defaultPopup);
   const [isToken, setIsToken] = useRecoilState(userToken);
 
+  useEffect(() => {
+    const token = localStorage.getItem('user_token');
+    if (token) {
+      setIsToken(token);
+    }
+  }, [])
+
   return (
     <div className="header">
       <Link href={'/'}>
@@ -20,7 +27,15 @@ const Header = () => {
       <div className="header-button-container">
         {isToken !== '' ?
           (
-            <button className="login" onClick={() => setIsToken('')}>로그아웃</button>
+            <button
+              className="login"
+              onClick={() => {
+                localStorage.removeItem('user_token');
+                setIsToken('')
+              }}
+            >
+              로그아웃
+            </button>
           )
           :
           (
