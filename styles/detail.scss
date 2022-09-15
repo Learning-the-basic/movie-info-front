@@ -204,7 +204,35 @@ hr {
     }
 
     .movieDInfoBottomRight {
-        
         @include bottomStyle(40%, 500px);
+        .movieComment{
+            background-color: rgb(233, 233, 233);
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            display: inline-flex;
+            flex-direction: column;
+            .commentUserInfo{
+                display: flex;
+                flex-direction: row;
+                .commentUserImg{
+                    background-color: black;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 30px;
+                    margin-right: 10px;
+                }
+                .commentUserName{
+                    line-height: 200%;
+                    margin-right: 100px;
+                }
+                .commentStar{
+                    line-height: 200%;
+                }
+            }
+        .commentText{
+            margin-top: 10px;
+        }
+        }
     }
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { defaultPopupOpen } from "../../atom";
+import { defaultPopup } from "../../atom";
 
 const DefaultPopup = ({ children, title }) => {
-  const closePopup = useSetRecoilState(defaultPopupOpen);
+  const closePopup = useSetRecoilState(defaultPopup);
   return (
     <div className="default-popup-container">
       <div
