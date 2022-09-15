@@ -4,9 +4,8 @@ import moment from "moment";
 import Slider from "react-slick";
 import NextArrow from "../../components/button/NextArrow";
 import PrevArrow from "../../components/button/PrevArrow";
-// import '.../styles/app.scss'; 
-// import Footer from "../components/Footer/Footer";
 import {useRouter} from "next/router";
+import Link from 'next/link'
 
 function Detail() {
 
@@ -195,7 +194,19 @@ function Detail() {
 
                 <div className="movieDInfoBottomRight">
                   <h3>코멘트</h3>
-                  <div className="movieComment">코멘트</div>
+                  <button className="movieComment" onClick={() => router.push(`/comments/${movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "").replace(/\s/gi, "")}`)}>
+                    <div className="commentUserInfo">
+                      {/* 유저 사진 */}
+                      <div className="commentUserImg"></div>
+                      {/* 유저 이름 */}
+                      <div className="commentUserName"> 유저이름</div>
+                      <div className="commentStar">별점</div>
+                    </div>
+                    <hr style={{ backgroundColor: "rgb(190, 190, 190)" }} />
+                    <div className="commentText">
+                      코멘트 내용
+                    </div>
+                    </button>
                 </div>
               </div>
             </div>
