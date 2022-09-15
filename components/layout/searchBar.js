@@ -4,18 +4,20 @@ import axios from "axios";
 
 const SearchBar = () => {
   const router = useRouter();
-
+  
   const [searchText, setSearchText] = useState("");
   const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail&ServiceKey=80HF21BI401E15RFQ193`)
-      setMovieData(res.data.Data[0].Result)
+      const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail&title=${searchText}&sort=prodYear,1&ServiceKey=80HF21BI401E15RFQ193`)
+      if (res.data.Data[0].Result) {
+        setMovieData(res.data.Data[0].Result)
+      }
     }
     fetchMovies()
-  }, [])
-  // api에 title 검색(자동완성 부분) 하려면 filter부분 바꿔야 함
+  }, [searchText])
+  
   const onChange = (e) => {
     setSearchText(e.target.value)
   }
@@ -48,9 +50,9 @@ const SearchBar = () => {
             return (
                 <>
                   <p 
-                  key={movie.docid}
-                  onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title)}>
-                  {movie.title}
+                  key={movie.DOCID}
+                  onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title.replace(/!HS/gi, "").replace(/!HE/gi, ""))}>
+                  {movie.title.replace(/!HS/gi, "").replace(/!HE/gi, "")} ({movie.prodYear} {movie.nation})
                   </p>
                 </>
               )
