@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, {useEffect, useState, useRef} from "react";
 import {useRecoilState, useRecoilValue} from "recoil";
 import {defaultPopup, userToken} from "../../atom";
 import Search from "./search";
+=======
+import React from "react";
+import { useSetRecoilState } from "recoil";
+import { defaultPopupOpen } from "../../atom";
+import SearchBar from "./searchBar";
+>>>>>>> Yang
 import Link from 'next/link'
 
 const Header = () => {
@@ -23,7 +30,7 @@ const Header = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/b/b8/%EC%99%93%EC%B1%A0_%EB%A1%9C%EA%B3%A0_2021.png"
         />
       </Link>
-      <Search/>
+      <SearchBar/>
       <div className="header-button-container">
         {isToken !== '' ?
           (
