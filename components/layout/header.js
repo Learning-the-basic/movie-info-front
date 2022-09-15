@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 import React, {useEffect, useState, useRef} from "react";
 import {useRecoilState, useRecoilValue} from "recoil";
 import {defaultPopup, userToken} from "../../atom";
-import Search from "./search";
-=======
-import React from "react";
-import { useSetRecoilState } from "recoil";
-import { defaultPopupOpen } from "../../atom";
+// import Search from "./search";
 import SearchBar from "./searchBar";
->>>>>>> Yang
 import Link from 'next/link'
 
 const Header = () => {
