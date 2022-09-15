@@ -8,6 +8,10 @@
 
 /reference
 
+# next.js
+/.next/
+/out/
+
 # testing
 /coverage
 
