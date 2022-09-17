@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { GetServerSideProps } from "next"; next router 새로고침 오류
+// import { GetServerSideProps } from "next"; next router 새로고침 오류 (state 유지 안됌)
 import { useRouter } from "next/router";
 import CardList from "../../components/card/cardList";
 import axios from "axios";
@@ -20,7 +20,7 @@ const searchResults = () => {
   }, [title])
   
   useEffect(() => {
-    const list = state.filter((v) => {
+    const list = state && state.filter((v) => {
       const movies = v.title || ""
       if (movies.includes(title)) {
         return v
@@ -31,14 +31,12 @@ const searchResults = () => {
 
   return (
     <div className="searchResults">
-      <h3>"{title.replace(/!HS/gi, "").replace(/!HE/gi, "")}"에 대한 검색 결과입니다.</h3>
-      {filterMovieList.map((movie) => {
-        return (
-          <div>
+      {filterMovieList 
+        ? filterMovieList.map((movie) => {
+          return (
             <CardList key={movie.DOCID} data={movie}/>
-          </div>
-        )
-      })}
+          )})
+        : <h4>"{title}"에 대한 검색 결과를 찾을 수 없습니다.</h4>}
     </div>
   )
 }
