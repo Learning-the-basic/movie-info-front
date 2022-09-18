@@ -13,7 +13,7 @@ const searchResults = () => {
   
   useEffect(() => {
     const fetchMovies = async () => {
-      const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail&title=${title.replace(/!HS/gi, "").replace(/!HE/gi, "")}&ServiceKey=80HF21BI401E15RFQ193`)
+      const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail&title=${title.replace(/!HS/gi, "").replace(/!HE/gi, "")}&listCount=20&ServiceKey=80HF21BI401E15RFQ193`)
       setState(res.data.Data[0].Result)
     }
     fetchMovies()
@@ -30,7 +30,7 @@ const searchResults = () => {
   }, [state])
 
   return (
-    <div className="searchResults">
+    <div className="searchResults" style={{ display:"flex" }}>
       {filterMovieList 
         ? filterMovieList.map((movie) => {
           return (

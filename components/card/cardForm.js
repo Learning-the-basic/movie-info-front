@@ -11,7 +11,7 @@ const CardForm = ({ movie }) => {
         onClick={() => router.push(`/detail/${movie.title.replace(/!HS/gi, "").replace(/!HE/gi, "")}`)}
         src={movie.posters 
           ? movie.posters.split('|')[0] 
-          : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3EJPWaD_VbJChENOk8Gy-YBAcOcJvKI828A&usqp=CAU"}
+          : "/images/no_image_found.png"}
         />
         <h4>{movie.title.replace(/!HS/gi, "").replace(/!HE/gi, "")}</h4>
         <div className="card-form-detail">
