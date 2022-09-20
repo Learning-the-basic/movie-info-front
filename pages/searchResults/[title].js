@@ -30,7 +30,7 @@ const searchResults = () => {
   }, [state])
 
   return (
-    <div className="searchResults" style={{ display:"flex" }}>
+    <div className="searchResults">
       {filterMovieList 
         ? filterMovieList.map((movie) => {
           return (

@@ -1,0 +1,23 @@
+.card-form {
+  padding: 2rem;
+  border-bottom: solid #d1d1d2;
+  .card-form-figure {
+    .card-form-image {
+      cursor: pointer;
+      width: 213px;
+      height: 305px;
+    }
+    h4 {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      max-width: 200px;
+    }
+    div {
+      max-width: 213px;
+    }
+    .card-form-detail {
+      font-size: 14px;
+      color: gray;
+    }
+  }
+}

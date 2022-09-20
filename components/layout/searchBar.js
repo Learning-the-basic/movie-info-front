@@ -24,7 +24,9 @@ const SearchBar = () => {
 
   const onKeyPress = (e) => {
     if(e.key === "Enter") {
-      router.push(`/searchResults/${searchText}`)
+      searchText 
+      ? router.push(`/searchResults/${searchText}`)
+      : router.push(`/searchResults/""`)
       setSearchText("")
     }
   }
@@ -51,7 +53,8 @@ const SearchBar = () => {
                 <>
                   <p 
                   key={movie.DOCID}
-                  onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title.replace(/!HS/gi, "").replace(/!HE/gi, ""))}>
+                  onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title.replace(/!HS/gi, "").replace(/!HE/gi, ""))}
+                  >
                   {movie.title.replace(/!HS/gi, "").replace(/!HE/gi, "")} ({movie.prodYear} {movie.nation})
                   </p>
                 </>
