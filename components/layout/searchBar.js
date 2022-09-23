@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useRouter } from "next/router";
+import { debounce } from "lodash";
 import axios from "axios";
 
 const SearchBar = () => {
@@ -8,17 +9,17 @@ const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
   const [movieData, setMovieData] = useState([]);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail&title=${searchText}&sort=prodYear,1&ServiceKey=80HF21BI401E15RFQ193`)
+  const fetchMovies = async (title) => {
+    const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail&title=${title}&sort=prodYear,1&ServiceKey=80HF21BI401E15RFQ193`)
       if (res.data.Data[0].Result) {
         setMovieData(res.data.Data[0].Result)
       }
-    }
-    fetchMovies()
-  }, [searchText])
-  // debounce 적용 해야 함
+  }
+
+  const debouncedText = useCallback(debounce((v) => fetchMovies(v), 300), [])
+
   const onChange = (e) => {
+    debouncedText(e.target.value)
     setSearchText(e.target.value)
   }
 
@@ -31,8 +32,8 @@ const SearchBar = () => {
     }
   }
 
-  const filterMovieList = movieData.filter((v) => {
-    return v.title.includes(searchText)
+  const filterMovieList = movieData.filter((movie) => {
+    return movie.title.includes(searchText)
   })
 
   return (

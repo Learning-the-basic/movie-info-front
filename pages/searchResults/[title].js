@@ -30,7 +30,7 @@ const searchResults = () => {
 
   return (
     <div className="searchResults">
-      {filterMovieList 
+      {filterMovieList
         ? filterMovieList.map((movie) => {
           return (
             <CardList key={movie.DOCID} data={movie}/>
