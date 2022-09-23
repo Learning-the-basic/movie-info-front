@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { GetServerSideProps } from "next"; next router 새로고침 오류 (state 유지 안됌)
 import { useRouter } from "next/router";
 import CardList from "../../components/card/cardList";
 import axios from "axios";

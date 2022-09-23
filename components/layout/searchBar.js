@@ -17,7 +17,7 @@ const SearchBar = () => {
     }
     fetchMovies()
   }, [searchText])
-  
+  // debounce 적용 해야 함
   const onChange = (e) => {
     setSearchText(e.target.value)
   }
@@ -26,13 +26,13 @@ const SearchBar = () => {
     if(e.key === "Enter") {
       searchText 
       ? router.push(`/searchResults/${searchText}`)
-      : router.push(`/searchResults/""`)
+      : router.replace(router.asPath)
       setSearchText("")
     }
   }
 
   const filterMovieList = movieData.filter((v) => {
-    return v.title.replace(" ", "").includes(searchText)
+    return v.title.includes(searchText)
   })
 
   return (
