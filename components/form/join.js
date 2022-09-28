@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import DefaultInput from "./input";
-import {ltbJoin} from "../../api/ltb";
+import { ltbJoin, ltbLogin } from "../../api/ltb";
 import {useSetRecoilState} from "recoil";
-import {defaultPopup} from "../../atom";
+import { defaultPopup, userToken } from "../../atom";
 
 const Join = () => {
+  const setUserToken = useSetRecoilState(userToken);
   const openPopup = useSetRecoilState(defaultPopup);
   const [isDisable, setDisable] = useState(false);
   const [joinData, setJoinData] = useState({ email: '', name: '', password: '' });
@@ -25,7 +26,15 @@ const Join = () => {
 
   const register = () => {
     ltbJoin(joinData).then((res) => {
-      openPopup('');
+      const params = {
+        email: joinData.email,
+        password: joinData.password
+      }
+      ltbLogin(params).then((res) => {
+        localStorage.setItem('user_token', res.accessToken);
+        setUserToken(res.accessToken);
+        openPopup('');
+      })
     });
   }
 

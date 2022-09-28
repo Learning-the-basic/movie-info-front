@@ -1,9 +1,18 @@
-import React, {useState} from "react";
+import React, { useEffect, useState } from "react";
 import MyReview from "../../components/user/review";
 import MyWriting from "../../components/user/writing";
+import { userInfo } from "../../api/ltb";
 
 const MyPage = () => {
-  const [listType, setListType] = useState('write')
+  const [listType, setListType] = useState('write');
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    userInfo().then((res) => {
+      console.log(res);
+      setUser(res);
+    })
+  }, [])
   return (
     <div className="myPage">
       <div className="userInfo">
