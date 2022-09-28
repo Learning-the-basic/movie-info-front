@@ -39,7 +39,7 @@ const SearchBar = () => {
   return (
     <div className="search">
       <input 
-        className="searchInput"
+        className="search-input"
         type="text" 
         placeholder="영화 제목을 입력해 주세요." 
         value={searchText}
@@ -47,8 +47,8 @@ const SearchBar = () => {
         onKeyPress={onKeyPress}
       />
       {searchText && filterMovieList.length > 0 &&
-        <div className="searchContainer">
-          <div className="filterSearch">
+        <div className="search-container">
+          <div className="filter-search">
             {filterMovieList.map((movie) => {
             return (
                 <>

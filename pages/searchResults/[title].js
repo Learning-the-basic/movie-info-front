@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import CardList from "../../components/card/cardList";
 import axios from "axios";
 
-const searchResults = () => {
+const SearchResults = () => {
   const router = useRouter();
   const title = router.query.title || "";
 
@@ -29,7 +29,7 @@ const searchResults = () => {
   }, [state])
 
   return (
-    <div className="searchResults">
+    <div className="search-results">
       {filterMovieList
         ? filterMovieList.map((movie) => {
           return (
@@ -40,4 +40,4 @@ const searchResults = () => {
   )
 }
 
-export default searchResults;
+export default SearchResults;
