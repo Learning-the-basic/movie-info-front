@@ -169,25 +169,38 @@ function Detail() {
                     <hr style={{ margin: "20px 0 0 0" }} />
                     <h3>포스터</h3>
                     <div className="moviePostersContainer">
+                    {
+                      (movie.Result[0].posters.split('|').length) > 1 ? 
                       <Slider {...settings} >
                         {
                           movie.Result[0].posters.split('|').map(
                             posters =>
                               (<img src={posters} key={posters} className="moviePosters"></img>))
                         }
-                      </Slider>
+                      </Slider> :
+                          movie.Result[0].posters.split('|').map(
+                            posters =>
+                              (<img src={posters} key={posters} className="moviePosters"></img>))
+                      }
                     </div>
                     <hr style={{ margin: "20px 0 0 0" }} />
 
                     <h3>스틸컷</h3>
                     <div className="movieStillsContainer">
-                      <Slider {...settings}>
-                        {
+                      {
+                        (movie.Result[0].stlls.split('|').length) > 1 ?
+                          <Slider {...settings}>
+                            {
+                              movie.Result[0].stlls.split('|').map(
+                                stlls =>
+                                  (<img src={stlls} key={stlls}></img>))
+                            }
+                          </Slider> :
                           movie.Result[0].stlls.split('|').map(
                             stlls =>
                               (<img src={stlls} key={stlls}></img>))
-                        }
-                      </Slider>
+                      }
+
                     </div>
                   </div>
                 </div>
