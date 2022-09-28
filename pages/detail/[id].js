@@ -65,13 +65,13 @@ function Detail() {
       {loading ? <h1>Loading...</h1> :
         <div className="detailWrapper">
           {movies.map((movie) => (
-            <div className="movieDetail" key={movie.Result[0].DOCID}>
+            <div className="movieDetail" key={movie.Result===undefined? '':movie.Result[0].DOCID}>
               <div className="movieDTopContainer">
                 <div className="movieDInfoTop">
-                  <img className="movieDImg" src={movie.Result[0].posters.split('|')[0]}></img>
+                  <img className="movieDImg" src={movie.Result===undefined? '':movie.Result[0].posters.split('|')[0]}></img>
                   <div className="movieDInfoRight">
-                    <h3 className="movieDTitle">{movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "")}</h3>
-                    <p className="movieDInfoRightYGN">{movie.Result[0].prodYear} ▪ {movie.Result[0].genre} ▪ {movie.Result[0].nation}</p>
+                    <h3 className="movieDTitle">{movie.Result===undefined? '':movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "")}</h3>
+                    <p className="movieDInfoRightYGN">{movie.Result===undefined? '':movie.Result[0].prodYear} ▪ {movie.Result===undefined? '':movie.Result[0].genre} ▪ {movie.Result===undefined? '':movie.Result[0].nation}</p>
                     <hr align="left" />
                     <div className="ratingAvg">
                       <p>평균 ★</p>
@@ -140,18 +140,18 @@ function Detail() {
                 <div className="movieDInfoBottomLeft">
                   <div className="movieDBasicInfo">
                     <h3>기본정보</h3>
-                    <p>{movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "")}</p>
-                    <p>{movie.Result[0].prodYear} ▪ {movie.Result[0].genre} ▪ {movie.Result[0].nation}</p>
-                    <p>{movie.Result[0].runtime}분 ▪ {movie.Result[0].rating}</p>
-                    <p>개봉 : {moment(movie.Result[0].repRlsDate).format("YYYY.MM.DD")}</p>
+                    <p>{movie.Result===undefined? '':movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "")}</p>
+                    <p>{movie.Result===undefined? '':movie.Result[0].prodYear} ▪ {movie.Result===undefined? '':movie.Result[0].genre} ▪ {movie.Result===undefined? '':movie.Result[0].nation}</p>
+                    <p>{movie.Result===undefined? '':movie.Result[0].runtime}분 ▪ {movie.Result===undefined? '':movie.Result[0].rating}</p>
+                    <p>개봉 : {moment(movie.Result===undefined? '':movie.Result[0].repRlsDate).format("YYYY.MM.DD")}</p>
                     <hr style={{margin: "20px 0 0 0"}}/>
                     <div className="movieDplotText">
                       <h3>줄거리</h3>
                       <p className={closedPlot ? "openPlot" : "closePlot"}
                         onClick={handleMorePlot}>
-                        {movie.Result[0].plots.plot[0].plotText}
+                        {movie.Result===undefined? '':movie.Result[0].plots.plot[0].plotText}
                       </p>
-                      <div className={movie.Result[0].plots.plot[0].plotText.length<=150? "plotBtnOff": "plotBtnOn"}>
+                      <div className={movie.Result===undefined? '':movie.Result[0].plots.plot[0].plotText.length<=150? "plotBtnOff": "plotBtnOn"}>
                         <button className={closedPlot ? "moreButtonOff" : "moreButtonOn"}
                           onClick={handleMorePlot}>
                           {"더보기"}
@@ -164,21 +164,21 @@ function Detail() {
                     </div>
                     <hr style={{ margin: "20px 0 0 0" }} />
                     <h3>출연/제작</h3>
-                    <p className="direcor">감독: {movie.Result[0].directors.director.map(director => director.directorNm)}</p>
-                    <p>출연: {movie.Result[0].actors.actor.map(actor => actor.actorNm) + ','.slice(0, -1)}</p>
+                    <p className="direcor">감독: {movie.Result===undefined? '':movie.Result[0].directors.director.map(director => director.directorNm)}</p>
+                    <p>출연: {movie.Result===undefined? '':movie.Result[0].actors.actor.map(actor => actor.actorNm) + ','.slice(0, -1)}</p>
                     <hr style={{ margin: "20px 0 0 0" }} />
                     <h3>포스터</h3>
                     <div className="moviePostersContainer">
                     {
-                      (movie.Result[0].posters.split('|').length) > 1 ? 
+                      (movie.Result===undefined? '':movie.Result[0].posters.split('|').length) > 1 ? 
                       <Slider {...settings} >
                         {
-                          movie.Result[0].posters.split('|').map(
+                          movie.Result===undefined? '':movie.Result[0].posters.split('|').map(
                             posters =>
                               (<img src={posters} key={posters} className="moviePosters"></img>))
                         }
                       </Slider> :
-                          movie.Result[0].posters.split('|').map(
+                          movie.Result===undefined? '':movie.Result[0].posters.split('|').map(
                             posters =>
                               (<img src={posters} key={posters} className="moviePosters"></img>))
                       }
@@ -188,15 +188,15 @@ function Detail() {
                     <h3>스틸컷</h3>
                     <div className="movieStillsContainer">
                       {
-                        (movie.Result[0].stlls.split('|').length) > 1 ?
+                        (movie.Result===undefined? '':movie.Result[0].stlls.split('|').length) > 1 ?
                           <Slider {...settings}>
                             {
-                              movie.Result[0].stlls.split('|').map(
+                              movie.Result===undefined? '':movie.Result[0].stlls.split('|').map(
                                 stlls =>
                                   (<img src={stlls} key={stlls}></img>))
                             }
                           </Slider> :
-                          movie.Result[0].stlls.split('|').map(
+                          movie.Result===undefined? '':movie.Result[0].stlls.split('|').map(
                             stlls =>
                               (<img src={stlls} key={stlls}></img>))
                       }
@@ -207,7 +207,7 @@ function Detail() {
 
                 <div className="movieDInfoBottomRight">
                   <h3>코멘트</h3>
-                  <button className="movieComment" onClick={() => router.push(`/comments/${movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "").replace(/\s/gi, "")}`)}>
+                  <button className="movieComment" onClick={() => router.push(`/comments/${movie.Result===undefined? '':movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "").replace(/\s/gi, "")}`)}>
                     <div className="commentUserInfo">
                       {/* 유저 사진 */}
                       <div className="commentUserImg"></div>

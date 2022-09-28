@@ -97,8 +97,8 @@ const RankKofic = () => {
             {movies.map((movie, index) =>
                 (
                   <div className="boxofficeRank" key={index} onClick={() => router.push(`/detail/${movie.title}`)}>
-                    {console.log(movie.rank, ". movieCd:", movie.movieCd)}
-                    {console.log("Codes:", (movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].Codes.Code[0].CodeNo)}
+                    {/* {console.log(movie.rank, ". movieCd:", movie.movieCd)}
+                    {console.log("Codes:", (movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].Codes.Code.map(CodeNo => CodeNo))} */}
                     <div className="movieRank">{movie.rank}</div>
                     <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result===undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
                     <h4 className="movieNm">{movie.title}</h4>
