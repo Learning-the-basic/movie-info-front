@@ -96,9 +96,8 @@ const RankKofic = () => {
           <Slider {...settings} className="boxofficeRankContainer">
             {movies.map((movie, index) =>
                 (
-                  <div className="boxofficeRank" key={index} onClick={() => router.push(`/detail/${movie.title}`)}>
-                    {/* {console.log(movie.rank, ". movieCd:", movie.movieCd)}
-                    {console.log("Codes:", (movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].Codes.Code.map(CodeNo => CodeNo))} */}
+                  <div className="boxofficeRank" key={index} onClick={movie.jsonData.Result===undefined?()=>router.push(`/detail/notFoundMovie`):() => router.push(`/detail/${movie.title}`)}>
+                    {/* {console.log(movie.jsonData.Result===undefined?'영화정보 없음':'있음')} */}
                     <div className="movieRank">{movie.rank}</div>
                     <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result===undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
                     <h4 className="movieNm">{movie.title}</h4>
