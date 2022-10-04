@@ -21,7 +21,7 @@ const SearchResults = () => {
   useEffect(() => {
     const list = state && state.filter((v) => {
       const movies = v.title || ""
-      if (movies.includes(title)) {
+      if (movies.replace(/!HS|!HE| /gi, "").includes(title.replace(/!HS|!HE| /gi, ""))) {
         return v
       }
     })
@@ -29,13 +29,13 @@ const SearchResults = () => {
   }, [state])
 
   return (
-    <div className="search-results">
+    <div className="searchResults">
       {filterMovieList
         ? filterMovieList.map((movie) => {
           return (
             <CardList key={movie.DOCID} data={movie}/>
           )})
-        : <h4>"{title}"에 대한 검색 결과를 찾을 수 없습니다.</h4>}
+        : <h4 className="searchResults-none">"{title}"에 대한 검색 결과를 찾을 수 없습니다.</h4>}
     </div>
   )
 }

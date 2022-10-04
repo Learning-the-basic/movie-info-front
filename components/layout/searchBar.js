@@ -33,13 +33,15 @@ const SearchBar = () => {
   }
 
   const filterMovieList = movieData.filter((movie) => {
-    return movie.title.includes(searchText)
+    return movie.title.replace(/!HS|!HE| /gi, "").includes(searchText.replace(/ /gi, "")) 
+    && !(movie.genre.includes("에로")) 
+    && movie.genre.length !== 0
   })
 
   return (
-    <div className="search">
+    <div className="searchBar">
       <input 
-        className="search-input"
+        className="searchBar-input"
         type="text" 
         placeholder="영화 제목을 입력해 주세요." 
         value={searchText}
@@ -47,18 +49,18 @@ const SearchBar = () => {
         onKeyPress={onKeyPress}
       />
       {searchText && filterMovieList.length > 0 &&
-        <div className="search-container">
-          <div className="filter-search">
+        <div className="searchBar-container">
+          <div className="searchBar-container-filter">
             {filterMovieList.map((movie) => {
             return (
-                <>
-                  <p 
-                  key={movie.DOCID}
-                  onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title.replace(/!HS/gi, "").replace(/!HE/gi, ""))}
-                  >
-                  {movie.title.replace(/!HS/gi, "").replace(/!HE/gi, "")} ({movie.prodYear} {movie.nation})
-                  </p>
-                </>
+              <>
+                <p 
+                key={movie.DOCID}
+                onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title.replace(/!HS|!HE| /gi, ""))}
+                >
+                {movie.title.replace(/!HS|!HE/gi, "")} ({movie.prodYear} {movie.nation})
+                </p>
+              </>
               )
             })}
           </div>

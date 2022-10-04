@@ -3,7 +3,7 @@ import CardForm from "./cardForm";
 
 const CardList = ({ data }) => {
   return (
-    <div className="card-list" style={{ display: "flex" }}>
+    <div className="cardList">
       <CardForm key={data.DOCID} movie={data}/>
     </div>
   )
