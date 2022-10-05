@@ -1,0 +1,23 @@
+.cardForm {
+  padding: 2rem;
+  border-bottom: solid #d1d1d2;
+
+  &-figure {
+    max-width: 213px;
+
+    &-image {
+      cursor: pointer;
+      width: 213px;
+      height: 305px;
+    }
+    &-title {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      max-width: 200px;
+    }
+    &-detail {
+      font-size: 14px;
+      color: gray;
+    }
+  }
+}

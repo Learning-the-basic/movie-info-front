@@ -1,40 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useRouter } from "next/router";
+import { debounce } from "lodash";
 import axios from "axios";
 
 const SearchBar = () => {
   const router = useRouter();
-
+  
   const [searchText, setSearchText] = useState("");
   const [movieData, setMovieData] = useState([]);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail&ServiceKey=80HF21BI401E15RFQ193`)
-      setMovieData(res.data.Data[0].Result)
-    }
-    fetchMovies()
-  }, [])
-  // api에 title 검색(자동완성 부분) 하려면 filter부분 바꿔야 함
+  const fetchMovies = async (title) => {
+    const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail&title=${title}&sort=prodYear,1&ServiceKey=80HF21BI401E15RFQ193`)
+      if (res.data.Data[0].Result) {
+        setMovieData(res.data.Data[0].Result)
+      }
+  }
+
+  const debouncedText = useCallback(debounce((v) => fetchMovies(v), 300), [])
+
   const onChange = (e) => {
+    debouncedText(e.target.value)
     setSearchText(e.target.value)
   }
 
   const onKeyPress = (e) => {
     if(e.key === "Enter") {
-      router.push(`/searchResults/${searchText}`)
+      searchText 
+      ? router.push(`/searchResults/${searchText}`)
+      : router.replace(router.asPath)
       setSearchText("")
     }
   }
 
-  const filterMovieList = movieData.filter((v) => {
-    return v.title.replace(" ", "").includes(searchText)
+  const filterMovieList = movieData.filter((movie) => {
+    return movie.title.replace(/!HS|!HE| /gi, "").includes(searchText.replace(/ /gi, "")) 
+    && !(movie.genre.includes("에로")) 
+    && movie.genre.length !== 0
   })
 
   return (
-    <div className="search">
+    <div className="searchBar">
       <input 
-        className="searchInput"
+        className="searchBar-input"
         type="text" 
         placeholder="영화 제목을 입력해 주세요." 
         value={searchText}
@@ -42,17 +49,18 @@ const SearchBar = () => {
         onKeyPress={onKeyPress}
       />
       {searchText && filterMovieList.length > 0 &&
-        <div className="searchContainer">
-          <div className="filterSearch">
+        <div className="searchBar-container">
+          <div className="searchBar-container-filter">
             {filterMovieList.map((movie) => {
             return (
-                <>
-                  <p 
-                  key={movie.docid}
-                  onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title)}>
-                  {movie.title}
-                  </p>
-                </>
+              <>
+                <p 
+                key={movie.DOCID}
+                onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title.replace(/!HS|!HE| /gi, ""))}
+                >
+                {movie.title.replace(/!HS|!HE/gi, "")} ({movie.prodYear} {movie.nation})
+                </p>
+              </>
               )
             })}
           </div>
