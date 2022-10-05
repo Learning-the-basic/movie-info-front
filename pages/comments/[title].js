@@ -31,26 +31,24 @@ const Comments = () => {
       <div className="commentsWrapper">
         {movies.map((movie) => (
           <div key={movie.Result[0].DOCID}>
-            <h3>기본정보</h3>
-            <p>{movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "")}</p>
-            <p>{movie.Result[0].prodYear} ▪ {movie.Result[0].genre} ▪ {movie.Result[0].nation}</p>
-            <p>{movie.Result[0].runtime}분 ▪ {movie.Result[0].rating}</p>
-            <div className="movieDInfoBottomRight">
-              <h3>코멘트</h3>
-              <button className="movieComment" >
-                <div className="commentUserInfo">
-                  {/* 유저 사진 */}
-                  <div className="commentUserImg"></div>
-                  {/* 유저 이름 */}
-                  <div className="commentUserName"> 유저이름</div>
-                  <div className="commentStar">별점</div>
-                </div>
-                <hr style={{ backgroundColor: "rgb(190, 190, 190)" }} />
-                <div className="commentText">
-                  코멘트 내용
-                </div>
-              </button>
+            <div className="commentUserInfo">
+              {/* 유저 사진 */}
+              <div className="commentUserImg"></div>
+              {/* 유저 이름 */}
+              <div className="commentUserName"> 유저이름</div>
             </div>
+
+            <div className="commentsMovieInfo">
+              <p className="commentsMovieName">{movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "")}</p>
+              <p>{movie.Result[0].prodYear} ▪ {movie.Result[0].genre} ▪ {movie.Result[0].nation}</p>
+              <p>{movie.Result[0].runtime}분 ▪ {movie.Result[0].rating}</p>
+            </div>
+
+            <div className="commentStar">별점 ★</div>
+            <div className="commentText">
+              코멘트 내용
+            </div>
+
           </div>
         ))}
 

@@ -54,12 +54,15 @@ const RankKofic = () => {
     const getMovies = async (movie) => {
       const json = await (
         await fetch(
-          `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${movie.movieNm}&releaseDts=${movie.openDt.replaceAll("-", "")}&ServiceKey=${KEY2}`
+          // releaseDts=${movie.openDt.replaceAll("-", "")}&
+          // createDte=${movie.openDt.substr(0,4)}
+          `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${movie.movieNm}&ServiceKey=${KEY2}`
         )
       ).json();
       return {
         "title": movie.movieNm,
         "rank": movie.rank,
+        "movieCd": movie.movieCd,
         "rnum": movie.rnum,
         "openDt": movie.openDt,
         "jsonData": json.Data[0]
@@ -93,7 +96,8 @@ const RankKofic = () => {
           <Slider {...settings} className="boxofficeRankContainer">
             {movies.map((movie, index) =>
                 (
-                  <div className="boxofficeRank" key={index} onClick={() => router.push(`/detail/${movie.title}`)}>
+                  <div className="boxofficeRank" key={index} onClick={movie.jsonData.Result===undefined?()=>router.push(`/detail/notFoundMovie`):() => router.push(`/detail/${movie.title}`)}>
+                    {/* {console.log(movie.jsonData.Result===undefined?'영화정보 없음':'있음')} */}
                     <div className="movieRank">{movie.rank}</div>
                     <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result===undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
                     <h4 className="movieNm">{movie.title}</h4>
