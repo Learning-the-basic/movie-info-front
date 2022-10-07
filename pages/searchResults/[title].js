@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import CardList from "../../components/card/cardList";
+import Card from "../../components/card/card";
 import axios from "axios";
 
 const SearchResults = () => {
@@ -33,7 +33,9 @@ const SearchResults = () => {
       {filterMovieList
         ? filterMovieList.map((movie) => {
           return (
-            <CardList key={movie.DOCID} data={movie}/>
+            <div className="cardList">
+              <Card key={movie.DOCID} movie={movie}/>
+            </div>
           )})
         : <h4 className="searchResults-none">"{title}"에 대한 검색 결과를 찾을 수 없습니다.</h4>}
     </div>

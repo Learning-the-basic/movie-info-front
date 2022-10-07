@@ -2,8 +2,10 @@ import React from "react";
 
 const Select = () => {
   return (
-    <div>
+    <div className="selectContatiner">
+      <select className="select">
 
+      </select>
     </div>    
   )
 }
