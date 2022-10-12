@@ -1,29 +1,44 @@
 .cardList {
   display: flex;
   border-bottom: solid #d1d1d2;
+}
+.cardForm {
+  padding: 2rem;
+  margin: 0 auto;
 
-  .cardForm {
-    padding: 2rem;
-    margin: 0 auto;
-  
-    &-figure {
-      max-width: 213px;
-      max-height: 500px;
-  
-      &-image {
-        cursor: pointer;
-        width: 213px;
-        height: 305px;
+  &-figure {
+    max-height: 500px;
+    
+    &-container {
+      float: left;
+      text-decoration: none;
+      color:black;
+
+      .rank {
+        background-color: rgba(49, 49, 49, 0.906);
+        color: white;
+        width: 25px;
+        height: 10px;
+        border-radius: 3px;
+        font-size: 15px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 10px;
+        position: absolute;
+        z-index: 2;
+        margin: 5px;
       }
-      &-title {
+
+      .image {
+        cursor: pointer;
+        width: 250px;
+        height: 360px;
+      }
+      .title {
         cursor: pointer;
         margin-top: 5px;
         margin-bottom: 5px;
         max-width: 200px;
-      }
-      &-detail {
-        font-size: 14px;
-        color: black;
       }
     }
   }

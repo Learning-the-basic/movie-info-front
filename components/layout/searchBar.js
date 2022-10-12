@@ -48,6 +48,7 @@ const SearchBar = () => {
         onChange={onChange}
         onKeyPress={onKeyPress}
       />
+      {/* <span><img src="/images/search.png"/></span> */}
       {searchText && filterMovieList.length > 0 &&
         <div className="searchBar-container">
           <div className="searchBar-container-filter">
