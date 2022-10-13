@@ -92,7 +92,7 @@ hr {
 .ratingComment {
   display: inline-block;
   height: 30px;
-
+  cursor: pointer;
   &:hover > .commentImgContainer {
     transform: scale(1.15);
   }
@@ -139,7 +139,6 @@ hr {
   .movieDInfoBottomLeft {
     @include bottomStyle(60%, 100%);
     margin-left: 0;
-
     .movieDBasicInfo h3 {
       & > h3 {
         font-size: 20px;
@@ -150,28 +149,26 @@ hr {
         margin: 5px 3px;
       }
     }
-
     .movieDplotText {
       letter-spacing: 1px;
       line-height: 25px;
     }
-
     .openPlot {
       max-height: 100%;
+      cursor: pointer;
     }
-
     .closePlot {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      cursor: pointer;
     }
-
     .plotBtnOn {
+      cursor: pointer;
       text-align: center;
     }
-
     .moreButtonOn {
       font-size: 12px;
       margin-top: 5px;
@@ -180,25 +177,23 @@ hr {
       border-radius: 4px;
       color: #000;
       background-color: white;
-
-      // box-shadow:
-      // -7px -7px 20px 0px #fff9,
-      // // -4px -4px 5px 0px #fff9,
-      // 2px 2px 5px 0px #0002,
-      // 2px 2px 2px 0px #0001;
+      cursor: pointer;
     }
-
     .moreButtonOff, .plotBtnOff {
       display: none;
     }
-
     .moviePostersContainer, .movieStillsContainer {
       margin: auto;
       padding: 0 0 40px 0;
-      width: 550px;
+      width: 90%;
       height: 100%;
+      .moviePosters{
+        border: 6px solid white;
+      }
     }
-
+    .backButton{
+        left: -14px
+    }
   }
 
   .movieDInfoBottomRight {

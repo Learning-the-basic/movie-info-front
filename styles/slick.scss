@@ -89,7 +89,7 @@
 .nextButton, .backButton{
   position: relative;
   top: -60px;
-  left: -5px;
+  left: -5px; 
 }
 
 .nextButtonG, .backButtonG {
@@ -116,5 +116,9 @@
 }
 
 .nextButtonG:active, .backButtonG:active{
+  display: none;
+}
+
+.slick-prev:before, .slick-next:before{
   display: none;
 }

@@ -54,18 +54,17 @@ const SearchBar = () => {
           <div className="searchBar-container-filter">
             {filterMovieList.map((movie) => {
             return (
-              <>
                 <p 
                 key={movie.DOCID}
                 onClick={() => router.push(`/searchResults/${movie.title}`) && setSearchText(movie.title.replace(/!HS|!HE| /gi, ""))}
                 >
-                {movie.title.replace(/!HS|!HE/gi, "")} ({movie.prodYear} {movie.nation})
+                  {movie.title.replace(/!HS|!HE/gi, "")} ({movie.prodYear} {movie.nation})
                 </p>
-              </>
               )
             })}
           </div>
-        </div>}
+        </div>
+      }
     </div>
   )
 }

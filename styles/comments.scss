@@ -1,8 +1,42 @@
+@mixin commentSubmitStle($color){
+  background-color: $color;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin: auto 46% auto auto;
+  text-align: center;
+  cursor: pointer;
+}
+
 .commentsWrapper {
   margin: 5%;
   margin-left: 10%;
   line-height: 150%;
 
+  .newComment{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .commentsMovieName{
+      text-align: center;
+    }
+    .commentInput{
+      border: 1px solid rgb(189, 189, 189);
+      width: 85vh;
+      height: 50vh;
+      border-radius: 5px;
+      margin: 10px auto;
+    }
+
+    .commentSubmit{
+      @include commentSubmitStle(rgb(212, 44, 108));
+    }
+    .commentNoSubmit{
+      @include commentSubmitStle(rgb(223, 105, 150));
+    }
+  }
   .commentUserImg {
     background-color: black;
     width: 30px;
@@ -26,7 +60,6 @@
       font-weight: 600;
       font-size: 17px;
     }
-
   }
   .commentStar{
     margin-bottom: 10px;

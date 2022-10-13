@@ -11,9 +11,9 @@ const Card = ({ movie }) => {
 
   return (
     <div className="cardForm">
-      <figure className="cardForm-figure">
+      <figure className="cardForm-figure" >
         <div className="cardForm-figure-container" onClick={onClick}>
-          {movie.rank && 
+          {movie.rank &&
             <div className="rank">{movie.rank}</div>
           }
           <img
@@ -23,7 +23,7 @@ const Card = ({ movie }) => {
             src={movie.posters ? movie.posters.split('|')[0] : "/images/no_image_found.png"}
           />
           <h4 className="title" onClick={onClick}>{title}</h4>
-          <p className="detail">{movie.prodYear} ▪ {movie.nation}</p> 
+          <p className="detail">{movie.prodYear} ▪ {movie.nation}</p>
         </div>
       </figure>
     </div>
