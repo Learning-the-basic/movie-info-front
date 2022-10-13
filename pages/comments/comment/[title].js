@@ -1,16 +1,10 @@
 import {React, useState, useEffect} from "react";
 import {useRouter} from "next/router";
 
-const newComment = () => {
+const Comments = () => {
   //영화정보
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const [commentText, setCommentText] = useState(false);
-
-  const handleCommentText = () => {
-    setCommentText(commentText => !commentText);
-  }
-
 
   const router = useRouter();
   const MNAME = router.query.title;
@@ -36,26 +30,33 @@ const newComment = () => {
     <div>
       <div className="commentsWrapper">
         {movies.map((movie) => (
-          <div className="newComment" key={movie.Result[0].DOCID}>
+          <div key={movie.Result[0].DOCID}>
+            <div className="commentUserInfo">
+              {/* 유저 사진 */}
+              <div className="commentUserImg"></div>
+              {/* 유저 이름 */}
+              <div className="commentUserName"> 유저이름</div>
+            </div>
 
             <div className="commentsMovieInfo">
               <p className="commentsMovieName">{movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "")}</p>
+              <p>{movie.Result[0].prodYear} ▪ {movie.Result[0].genre} ▪ {movie.Result[0].nation}</p>
+              <p>{movie.Result[0].runtime}분 ▪ {movie.Result[0].rating}</p>
             </div>
 
-            <input 
-              className="commentInput"
-              placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요."/>
-            <button 
-              className={commentText? "commentSubmit":"commentNoSubmit"} 
-              onClick={handleCommentText}
-            >저장</button>
+            <div className="commentStar">별점 ★</div>
+            <div className="commentText">
+              코멘트 내용
+            </div>
 
           </div>
         ))}
 
+        {/* 코멘트 목록들이 나오게
+        유저 프로필, 영화정보, 코멘트 내용 - 좋아요, 댓글 */}
     </div>
     </div>
   )
 }
 
-export default newComment;
+export default Comments;

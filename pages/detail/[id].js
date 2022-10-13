@@ -5,7 +5,6 @@ import Slider from "react-slick";
 import NextArrow from "../../components/button/NextArrow";
 import PrevArrow from "../../components/button/PrevArrow";
 import {useRouter} from "next/router";
-import Link from 'next/link'
 
 function Detail() {
 
@@ -99,7 +98,10 @@ function Detail() {
                           </div>
                           <p style={{margin: "0 20px 0 0" }}>보고싶어요</p>
                         </div>
-                        <div className="ratingComment">
+
+                        <div className="ratingComment"
+                          onClick={() => router.push(`/comments/${movie.Result===undefined? '':movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "").replace(/\s/gi, "")}`)}
+                        >
                           <div className="commentImgContainer">
                             <img
                               className="commentImg"
@@ -109,6 +111,7 @@ function Detail() {
                           </div>
                           <p>코멘트</p>
                         </div>
+
                         <div className="ratingComment">
                           <div className="commentImgContainer">
                             <img
@@ -193,12 +196,12 @@ function Detail() {
                             {
                               movie.Result===undefined? '':movie.Result[0].stlls.split('|').map(
                                 stlls =>
-                                  (<img src={stlls} key={stlls}></img>))
+                                  (<img src={stlls} key={stlls} className="moviePosters"></img>))
                             }
                           </Slider> :
                           movie.Result===undefined? '':movie.Result[0].stlls.split('|').map(
                             stlls =>
-                              (<img src={stlls} key={stlls}></img>))
+                              (<img src={stlls} key={stlls} className="moviePosters"></img>))
                       }
 
                     </div>
@@ -207,7 +210,7 @@ function Detail() {
 
                 <div className="movieDInfoBottomRight">
                   <h3>코멘트</h3>
-                  <button className="movieComment" onClick={() => router.push(`/comments/${movie.Result===undefined? '':movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "").replace(/\s/gi, "")}`)}>
+                  <button className="movieComment" onClick={() => router.push(`/comments/comment/${movie.Result===undefined? '':movie.Result[0].title.replace(/!HS/gi, "").replace(/!HE/gi, "").replace(/\s/gi, "")}`)}>
                     <div className="commentUserInfo">
                       {/* 유저 사진 */}
                       <div className="commentUserImg"></div>
