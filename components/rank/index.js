@@ -91,7 +91,7 @@ const RankKofic = () => {
 
   return (
     <div>
-      {loading ? <h1>Loading...</h1> : (
+      {loading ? <h1 className="loadingBar">Loading...</h1> : (
         <div className="rank">
           <h2 className="boxofficeRankNm">박스오피스 순위</h2>
           <Slider {...settings} className="boxofficeRankContainer">
