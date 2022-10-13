@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import {useRouter} from "next/router";
 import NextArrow from "../button/NextArrow";
 import PrevArrow from "../button/PrevArrow";
+import Card from "../card/card";
 
 //Slick
 const settings = {
@@ -96,14 +97,7 @@ const RankKofic = () => {
           <Slider {...settings} className="boxofficeRankContainer">
             {movies.map((movie, index) =>
                 (
-                  <div className="boxofficeRank" key={index} onClick={movie.jsonData.Result===undefined?()=>router.push(`/detail/notFoundMovie`):() => router.push(`/detail/${movie.title}`)}>
-                    {/* {console.log(movie.jsonData.Result===undefined?'영화정보 없음':'있음')} */}
-                    <div className="movieRank">{movie.rank}</div>
-                    <img className="movieImg" alt={movie.title} src={(movie.jsonData.Result===undefined)?'없음':movie.jsonData.Result[0].posters.split('|')[0]}></img>
-                    <h4 className="movieNm">{movie.title}</h4>
-                    <p className="movieInfo">{(movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].prodYear} ▪
-                      {(movie.jsonData.Result===undefined)?'':movie.jsonData.Result[0].nation}</p>
-                  </div>
+                  <Card key={movie.DOCID} movie={movie} index={index}/>
                 )
               )
             }
