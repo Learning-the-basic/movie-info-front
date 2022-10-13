@@ -51,12 +51,12 @@
 
 .rating {
     position: relative;
-    float: left;
 }
 
 .ratingStar {
     display: inline-block;
     text-align: center;
+    margin-right: 40px;
 }
 
 .ratingStar>p {
@@ -85,8 +85,8 @@ hr {
 .ratingOptionContainer {
     display: inline-flex;
     position: relative;
-    margin-left: 40px;
-    line-height: 100%;
+    line-height: 480%;
+    height: 100px;
 }
 
 

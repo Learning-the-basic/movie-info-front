@@ -86,7 +86,7 @@ function Detail() {
                         // showTooltip
                         />
                       </div>
-                      <div className="partition"></div>
+                      {/* <div className="partition"></div> */}
                       <div className="ratingOptionContainer">
                         <div className="ratingComment">
                           <div className="commentImgContainer">
