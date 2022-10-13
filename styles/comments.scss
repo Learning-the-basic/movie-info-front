@@ -1,35 +1,35 @@
 .commentsWrapper {
-    margin: 5%;
-    margin-left: 10%;
-    line-height: 150%;
-    
-    .commentUserImg {
-        background-color: black;
-        width: 30px;
-        height: 30px;
-        border-radius: 30px;
-        margin-right: 10px;
-        display: inline-block;
+  margin: 5%;
+  margin-left: 10%;
+  line-height: 150%;
+
+  .commentUserImg {
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  .commentUserName {
+    color: rgb(44, 44, 44);
+    display: inline-block;
+  }
+
+  .commentsMovieInfo{
+    margin-top: 10px;
+    color: rgb(124, 124, 124);
+    font-size: 12px;
+    .commentsMovieName{
+      color: black;
+      font-weight: 600;
+      font-size: 17px;
     }
 
-    .commentUserName {
-        color: rgb(44, 44, 44);
-        display: inline-block;
-    }
-
-    .commentsMovieInfo{
-        margin-top: 10px;
-        color: rgb(124, 124, 124);
-        font-size: 12px;
-        .commentsMovieName{
-            color: black;
-            font-weight: 600;
-            font-size: 17px;
-        }
-
-    }
-    .commentStar{
-        margin-bottom: 10px;
-        font-size: 15px;
-    }
+  }
+  .commentStar{
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
 }

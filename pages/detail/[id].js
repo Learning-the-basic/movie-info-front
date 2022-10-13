@@ -99,6 +99,7 @@ function Detail() {
                           </div>
                           <p style={{margin: "0 20px 0 0" }}>보고싶어요</p>
                         </div>
+
                         <div className="ratingComment">
                           <div className="commentImgContainer">
                             <img
@@ -109,7 +110,9 @@ function Detail() {
                           </div>
                           <p>코멘트</p>
                         </div>
+
                         <div className="ratingComment">
+
                           <div className="commentImgContainer">
                             <img
                               className="commentImg"
@@ -119,6 +122,7 @@ function Detail() {
                           </div>
                           <p>보는중</p>
                         </div>
+
                         <div className="ratingComment">
                           <div className="commentImgContainer">
                             <img

@@ -16,12 +16,11 @@ const Card = ({ movie }) => {
           {movie.rank && 
             <div className="rank">{movie.rank}</div>
           }
-          <img className="image" 
-          alt={title}
-          onClick={onClick}
-          src={movie.posters 
-            ? movie.posters.split('|')[0] 
-            : "/images/no_image_found.png"}
+          <img
+            className="image"
+            alt={title}
+            onClick={onClick}
+            src={movie.posters ? movie.posters.split('|')[0] : "/images/no_image_found.png"}
           />
           <h4 className="title" onClick={onClick}>{title}</h4>
           <p className="detail">{movie.prodYear} ▪ {movie.nation}</p> 

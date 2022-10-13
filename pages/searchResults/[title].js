@@ -9,7 +9,7 @@ import { sortValue } from "../../atom";
 const SearchResults = () => {
   const router = useRouter();
   const title = router.query.title || "";
-  const defaultValue = useRecoilValue(sortValue); 
+  const defaultValue = useRecoilValue(sortValue);
 
   const sortOption = [
     { id: "RANK", value: "정확도순" },
@@ -20,7 +20,7 @@ const SearchResults = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
-    const sortby = sortOption[0].id
+    let sortby = sortOption[0].id
 
     sortOption.forEach((item) => {
       if (item.value === defaultValue) {

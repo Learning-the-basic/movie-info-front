@@ -33,6 +33,10 @@
         cursor: pointer;
         width: 250px;
         height: 360px;
+        transition: 0.5s;
+        &:hover {
+          transform: scale(1.02);
+        }
       }
       .title {
         cursor: pointer;

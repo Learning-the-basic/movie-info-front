@@ -1,247 +1,245 @@
 .detailWrapper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .movieDetail {
-    display: inline-block;
-    margin: 0;
-    flex-flow: row-reverse wrap;
-    background-color: rgb(247, 247, 247);
-    width: 100%;
-    position: relative;
+  display: inline-block;
+  margin: 0;
+  flex-flow: row-reverse wrap;
+  background-color: rgb(247, 247, 247);
+  width: 100%;
+  position: relative;
 }
 
 .movieDImg {
-    width: 250px;
-    height: 360px;
-    border-radius: 5px;
-    margin: 30px auto 20px auto;
+  width: 250px;
+  height: 360px;
+  border-radius: 5px;
+  margin: 30px auto 20px auto;
 }
 
 .movieDTitle {
-    font-size: 30px;
-    width: auto;
+  font-size: 30px;
+  width: auto;
 }
 
 .movieDTopContainer {
-    align-items: stretch;
-    justify-content: flex-start;
-    margin: 0;
-    border-bottom: solid rgb(212, 212, 212) 1px;
-    background-color: white;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin: 0;
+  border-bottom: solid rgb(212, 212, 212) 1px;
+  background-color: white;
 }
 
 .movieDInfoTop {
-    margin: 0 8% 20px 8%;
+  margin: 0 8% 20px 8%;
 }
 
 .movieDInfoRight {
-    display: inline-block;
-    margin: 20px auto 0px 30px;
-    position: absolute;
-    width: 60%;
+  display: inline-block;
+  margin: 20px auto 0px 30px;
+  position: absolute;
+  width: 60%;
 }
 
 .movieDInfoRightYGN {
-    display: inline-block;
-    font-size: 15px;
-    color: rgb(112, 112, 112);
+  display: inline-block;
+  font-size: 15px;
+  color: rgb(112, 112, 112);
 }
 
 .rating {
-    position: relative;
+  position: relative;
 }
 
 .ratingStar {
-    display: inline-block;
-    text-align: center;
-    margin-right: 40px;
-}
-
-.ratingStar>p {
+  display: inline-block;
+  text-align: center;
+  margin-right: 40px;
+  & > p {
     font-size: 15px;
     color: rgb(112, 112, 112);
     margin-bottom: 0;
+  }
 }
 
 hr {
-    background-color: rgb(235, 235, 235);
-    height: 1px;
-    border: 0;
-    width: 90%;
+  background-color: rgb(235, 235, 235);
+  height: 1px;
+  border: 0;
+  width: 90%;
 }
 
 .partition {
-    display: inline-block;
-    width: 1px;
-    background-color: rgb(235, 235, 235);
-    position: absolute;
-    bottom: 0;
-    height: 80px;
-    margin: 0 15px;
+  display: inline-block;
+  width: 1px;
+  background-color: rgb(235, 235, 235);
+  position: absolute;
+  bottom: 0;
+  height: 80px;
+  margin: 0 15px;
 }
 
 .ratingOptionContainer {
-    display: inline-flex;
-    position: relative;
-    line-height: 480%;
-    height: 100px;
+  display: inline-flex;
+  position: relative;
+  line-height: 480%;
+  height: 100px;
 }
 
 
 .ratingComment {
-    display: inline-block;
-    height: 30px;
-}
+  display: inline-block;
+  height: 30px;
 
-.commentImgContainer {
-    width: 30px;
-    height: 30px;
-    transition: all 0.3s ease-in-out;
-    float: left;
-}
-
-.commentImg {
-    width: 23px;
-    height: 23px;
-}
-
-.ratingComment:hover>.commentImgContainer {
+  &:hover > .commentImgContainer {
     transform: scale(1.15);
-}
+  }
 
-.ratingComment p {
+  & > p {
     display: inline-block;
     margin: 0 0 0 8px;
     width: 80px;
     height: 30px;
     font-size: 15px;
+  }
 }
+
+.commentImgContainer {
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s ease-in-out;
+  float: left;
+}
+
+.commentImg {
+  width: 23px;
+  height: 23px;
+}
+
 
 @mixin bottomStyle($width, $height){
-    display: inline-block;
-    background-color: white;
-    border: 1px solid rgb(203, 203, 203);
-    border-radius: 5px;
-    padding: 0 20px;
-    margin: 40px 0 40px 20px;
-    width: $width;
-    height: $height;
+  display: inline-block;
+  background-color: white;
+  border: 1px solid rgb(203, 203, 203);
+  border-radius: 5px;
+  padding: 0 20px;
+  margin: 40px 0 40px 20px;
+  width: $width;
+  height: $height;
 }
 .movieDInfoBottom {
-    width: 80%;
-    height: 100%;
-    margin: 0 8% 0 8%;
-    position: relative;
-    display: flex;
+  width: 80%;
+  height: 100%;
+  margin: 0 8% 0 8%;
+  position: relative;
+  display: flex;
 
-    .movieDInfoBottomLeft {
-        @include bottomStyle(60%, 100%);
-        margin-left: 0;
+  .movieDInfoBottomLeft {
+    @include bottomStyle(60%, 100%);
+    margin-left: 0;
 
-        .movieDBasicInfo h3 {
-            font-size: 20px;
-        }
-
-        .movieDBasicInfo p {
-            font-size: 15px;
-            color: rgb(71, 71, 71);
-            margin: 5px 3px;
-        }
-
-        .movieDplotText {
-            letter-spacing: 1px;
-            line-height: 25px;
-        }
-
-        .openPlot {
-            max-height: 100%;
-        }
-
-        .closePlot {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
-
-        .plotBtnOn {
-
-            text-align: center;
-        }
-
-        .moreButtonOn {
-            font-size: 12px;
-            margin-top: 5px;
-            padding: 6px;
-            border: 1px solid rgb(203, 203, 203);
-            border-radius: 4px;
-            color: #000;
-            background-color: white;
-
-            // box-shadow:
-            // -7px -7px 20px 0px #fff9,
-            // // -4px -4px 5px 0px #fff9,
-            // 2px 2px 5px 0px #0002,
-            // 2px 2px 2px 0px #0001;
-        }
-
-        .moreButtonOff,
-        .plotBtnOff {
-            display: none;
-        }
-
-        .moviePostersContainer,
-        .movieStillsContainer {
-            margin: auto;
-            padding: 0 0 40px 0;
-            width: 550px;
-            height: 100%;
-        }
-
+    .movieDBasicInfo h3 {
+      & > h3 {
+        font-size: 20px;
+      }
+      & > p {
+        font-size: 15px;
+        color: rgb(71, 71, 71);
+        margin: 5px 3px;
+      }
     }
 
-    .movieDInfoBottomRight {
-        @include bottomStyle(40%, 500px);
-        .movieComment{
-            background-color: rgb(233, 233, 233);
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            display: inline-flex;
-            flex-direction: column;
-            .commentUserInfo{
-                display: flex;
-                flex-direction: row;
-                .commentUserImg{
-                    background-color: black;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 30px;
-                    margin-right: 10px;
-                }
-                .commentUserName{
-                    line-height: 200%;
-                    margin-right: 100px;
-                }
-                .commentStar{
-                    line-height: 200%;
-                }
-            }
-        .commentText{
-            margin-top: 10px;
-        }
-        }
+    .movieDplotText {
+      letter-spacing: 1px;
+      line-height: 25px;
     }
+
+    .openPlot {
+      max-height: 100%;
+    }
+
+    .closePlot {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    .plotBtnOn {
+      text-align: center;
+    }
+
+    .moreButtonOn {
+      font-size: 12px;
+      margin-top: 5px;
+      padding: 6px;
+      border: 1px solid rgb(203, 203, 203);
+      border-radius: 4px;
+      color: #000;
+      background-color: white;
+
+      // box-shadow:
+      // -7px -7px 20px 0px #fff9,
+      // // -4px -4px 5px 0px #fff9,
+      // 2px 2px 5px 0px #0002,
+      // 2px 2px 2px 0px #0001;
+    }
+
+    .moreButtonOff, .plotBtnOff {
+      display: none;
+    }
+
+    .moviePostersContainer, .movieStillsContainer {
+      margin: auto;
+      padding: 0 0 40px 0;
+      width: 550px;
+      height: 100%;
+    }
+
+  }
+
+  .movieDInfoBottomRight {
+    @include bottomStyle(40%, 500px);
+    .movieComment{
+      background-color: rgb(233, 233, 233);
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      display: inline-flex;
+      flex-direction: column;
+      .commentUserInfo{
+        display: flex;
+        flex-direction: row;
+        .commentUserImg{
+          background-color: black;
+          width: 30px;
+          height: 30px;
+          border-radius: 30px;
+          margin-right: 10px;
+        }
+        .commentUserName{
+          line-height: 200%;
+          margin-right: 100px;
+        }
+        .commentStar{
+          line-height: 200%;
+        }
+      }
+      .commentText{
+        margin-top: 10px;
+      }
+    }
+  }
 }
 
 .notFoundMovie{
-    margin: 0 30%;
-    font-size: 30px;
-    width: 500px;
-    height: 70vh;
-    text-align: center;
-    line-height: 70vh;
+  margin: 0 30%;
+  font-size: 30px;
+  width: 500px;
+  height: 70vh;
+  text-align: center;
+  line-height: 70vh;
 }
