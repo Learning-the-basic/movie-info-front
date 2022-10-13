@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .movie-container {
   position: relative;
   height: 100vh;
@@ -39,54 +41,152 @@
     padding: 60px 0 0 0;
   }
 
-.searchBar {
-  font-size: 15px; 
-  font-family: Arial, Helvetica, sans-serif;
+  .searchBar {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 
-  &-input {
-    width: 300px;
-    height: 30px;
-    padding-left: 10px; 
-    border: 0;
-    border-radius: 3px;
-    border-color: #d1d1d2;
-    background-color: #d1d1d2;
-    outline: none;
-  }
-  
-  &-container {
-    position: absolute;
-    top: 1;
-    width: 287px;
-    height: auto;
-    padding: 10px;
-    margin-top: 5px;
-    border: 2px solid;
-    border-radius: 3px;
-    background-color: #ffffff;
+    &-input {
+      width: 300px;
+      height: 30px;
+      padding-left: 10px;
+      border: 0;
+      border-radius: 3px;
+      border-color: #d1d1d2;
+      background-color: #d1d1d2;
+      outline: none;
+    }
 
-    &-filter {
-      display: 'flex';
-      line-height: 25px;
-      flex-direction: 'column';
-      cursor: pointer;
-      :hover {
-        background-color: #e2e2e2;
+    &-container {
+      position: absolute;
+      top: 1px;
+      width: 287px;
+      height: auto;
+      padding: 10px;
+      margin-top: 5px;
+      border: 2px solid;
+      border-radius: 3px;
+      background-color: #ffffff;
+
+      &-filter {
+        display: flex;
+        line-height: 25px;
+        flex-direction: column;
+        cursor: pointer;
+        :hover {
+          background-color: #e2e2e2;
+        }
       }
     }
   }
-}
-  // .footer {
-  //   display: block;
-  //   width: 100%;
-  //   height: 20px;
-  //   color: #ffffff;
-  //   font-size: 14px;
-  //   text-align: center;
-  //   padding: 10px 0;
-  //   background: #000000;
-  //   .review-count {
-  //     color: red;
-  //   }
-  // }
+
+  // Footer
+  .footer {
+    background-color: #1c1d1f;
+    .footer-top-star-count-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 63px;
+      background-color: $color-black;
+      font-size: 19px;
+      font-weight: 500;
+      color: #d1d1d2;
+      flex: 1;
+
+
+      .star-count {
+        padding: 0px 10px;
+        font-weight: 600;
+        color: $color-red;
+      }
+    }
+
+    .footer-bottom-container {
+      display: flex;
+      justify-content: space-around;
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        height: 240px;
+        width: 1380px;
+        padding: 30px 20px 45px 20px;
+        color: $font-color;
+
+        .right-bar-far {
+          padding-right: 7px;
+          margin-right: 7px;
+        }
+        .footer-left {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 90%;
+          font-size: $font-size-micro;
+
+          div {
+            margin: 5px 0px;
+          }
+
+          .footer-content0,
+          .footer-content3 {
+            margin-top: 22px;
+          }
+
+          .logo-div {
+            display: flex;
+            align-items: center;
+
+            .logo {
+              width: 70px;
+              margin-right: 5px;
+            }
+          }
+
+          .right-bar {
+            border-right: 1px solid $font-color;
+            line-height: 1px;
+          }
+        }
+      }
+
+      .footer-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 90%;
+
+        .select-language {
+          display: flex;
+          align-items: center;
+          width: 120px;
+          height: 32px;
+          padding-left: 7px;
+          border: 1px solid $font-color;
+          border-radius: 2px;
+          font-size: $font-size-medium;
+          font-weight: 500;
+          cursor: pointer;
+
+          &:hover {
+            border-color: #cacacf;
+          }
+
+          img {
+            width: 20px;
+          }
+        }
+
+        .footer-right-icons {
+          display: flex;
+          justify-content: space-around;
+
+          img {
+            width: 28px;
+            height: 28px;
+          }
+        }
+      }
+    }
+  }
 }

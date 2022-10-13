@@ -4,13 +4,14 @@
 @import "popup";
 @import "form";
 @import "detail";
-@import "Footer";
 @import "user";
 @import "variables";
 @import "comments";
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
 @import "card";
 @import "search";
 @import "community";
 @import "select";
+
+// slick
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
