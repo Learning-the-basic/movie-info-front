@@ -9,7 +9,7 @@ import { sortValue } from "../../atom";
 const SearchResults = () => {
   const router = useRouter();
   const title = router.query.title || "";
-  const defaultValue = useRecoilValue(sortValue); 
+  const defaultValue = useRecoilValue(sortValue);
 
   const sortOption = [
     { id: "RANK", value: "정확도순" },
@@ -20,7 +20,7 @@ const SearchResults = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
-    const sortby = sortOption[0].id
+    let sortby = sortOption[0].id
 
     sortOption.forEach((item) => {
       if (item.value === defaultValue) {
@@ -28,11 +28,10 @@ const SearchResults = () => {
       }
     })
     const fetchMovies = async () => {
-      const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${title.replace(/!HS/gi, "").replace(/!HE/gi, "")}&sort=${sortby},1&listCount=20&ServiceKey=80HF21BI401E15RFQ193`)
+      const res = await axios.get(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${title.replace(/!HS|!HE/gi, "")}&sort=${sortby},1&listCount=20&ServiceKey=80HF21BI401E15RFQ193`)
       setState(res.data.Data[0].Result)
     }
     fetchMovies()
-    console.log(sortby)
   }, [title, defaultValue])
   
   useEffect(() => {

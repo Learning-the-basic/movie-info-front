@@ -3,8 +3,10 @@
   border-bottom: solid #d1d1d2;
 }
 .cardForm {
-  padding: 2rem;
+  padding: 32px 0 32px 0;
   margin: 0 auto;
+  display: flex;
+  max-width: 295px;
 
   &-figure {
     max-height: 500px;
@@ -33,12 +35,13 @@
         cursor: pointer;
         width: 250px;
         height: 360px;
+        border-radius: 5px;
       }
       .title {
         cursor: pointer;
         margin-top: 5px;
         margin-bottom: 5px;
-        max-width: 200px;
+        max-width: 250px;
       }
     }
   }

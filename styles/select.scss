@@ -1,15 +1,15 @@
 .select {
   position: absolute;
+  align-items: flex-start;
+  margin: 8px 0 0 40px;
+  width: 120px;
+  height: 30px;
+  padding-left: 7px;
+  border-radius: 4px;
+  outline: 0 none;
+  background-image: url("../public/images/select_arrow.png");
   
-  &-box {
-    width: 120px;
-    height: 30px;
-    padding-left: 7px;
-    border-radius: 4px;
-    outline: 0 none;
-    background-image: url("../public/images/select_arrow.png");
-    &-options {
-      padding: 3px 0;
-    }
+  &-options {
+    padding: 3px 0;
   }
 }

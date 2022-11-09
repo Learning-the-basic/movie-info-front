@@ -10,19 +10,17 @@ const Select = ({options}) => {
   }
   
   return (
-    <div className="select">
-      <select className="select-box" onChange={onChange}>
-        {options.map((option) => (
-          <option 
-            className="select-box-options" 
-            key={option.id}
-            value={option.value}
-          >
-            {option.value}
-          </option>
-        ))}
-      </select>
-    </div>    
+    <select className="select" onChange={onChange}>
+      {options.map((option) => (
+        <option 
+          className="select-options" 
+          key={option.id}
+          value={option.value}
+        >
+          {option.value}
+        </option>
+      ))}
+    </select>
   )
 }
 
