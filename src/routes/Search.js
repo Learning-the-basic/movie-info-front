@@ -13,8 +13,8 @@ class Search extends React.Component {
 
 
   getSearchMovie = async () => {
-    const ID_KEY = 'qiMNfCrKAD2YwpKZAnmG'; // 네이버 개발 API 발급받고 Key 입력!!
-    const SECRET_KEY = 'X_9ZY5oH3v';
+    const ID_KEY = ''; // 네이버 개발 API 발급받고 Key 입력!!
+    const SECRET_KEY = '';
     const search = this.state.value;
     try {
       if (search === "") {
